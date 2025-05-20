@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { TrendingUp, Award, Users, Handshake, Check, DollarSign } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const features = [
   {
@@ -50,6 +50,16 @@ const WhyInvestSection = () => {
               <p className="text-gray-300 text-sm">{feature.description}</p>
             </div>
           ))}
+        </div>
+        <div className="text-center mt-12">
+          <Button 
+            size="lg" 
+            className="bg-allpOrange text-white hover:bg-allpOrange/90 font-poppins font-semibold px-8 py-3 text-lg animate-pulse-orange"
+            // Adicionar um onClick apropriado quando a funcionalidade for definida
+            // onClick={() => console.log('Botão "quero fazer parte" clicado!')}
+          >
+            quero fazer parte
+          </Button>
         </div>
       </div>
     </section>
