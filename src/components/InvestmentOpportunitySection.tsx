@@ -43,10 +43,9 @@ const InvestmentOpportunitySection = () => {
             </div>
           </div>
           <div className="text-center">
-            {/* Placeholder for an illustrative image or graphic */}
             <img 
-              src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aW52ZXN0bWVudCUyMGdyYXBoJTIwZmluYW5jZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" 
-              alt="Potencial de investimento Allp Fit" 
+              src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=500&q=60" 
+              alt="Gráficos de crescimento de investimento Allp Fit" 
               className="rounded-lg shadow-xl mx-auto w-full max-w-md h-auto object-cover"
             />
           </div>
