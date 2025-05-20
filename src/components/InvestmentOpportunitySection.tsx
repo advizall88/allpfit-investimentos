@@ -44,8 +44,8 @@ const InvestmentOpportunitySection = () => {
           </div>
           <div className="text-center">
             <img 
-              src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=500&q=60" 
-              alt="Gráficos de crescimento de investimento Allp Fit" 
+              src="/lovable-uploads/b8dda80f-0102-46ad-8caf-93a071a61134.png" 
+              alt="Pessoas treinando na academia Allp Fit" 
               className="rounded-lg shadow-xl mx-auto w-full max-w-md h-auto object-cover"
             />
           </div>
@@ -56,3 +56,4 @@ const InvestmentOpportunitySection = () => {
 };
 
 export default InvestmentOpportunitySection;
+
