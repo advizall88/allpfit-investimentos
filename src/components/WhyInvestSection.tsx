@@ -58,7 +58,7 @@ const WhyInvestSection = () => {
             // Adicionar um onClick apropriado quando a funcionalidade for definida
             // onClick={() => console.log('Botão "quero fazer parte" clicado!')}
           >
-            quero fazer parte
+            QUERO FAZER PARTE
           </Button>
         </div>
       </div>
