@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { CheckCircle, Gift, AlertTriangle } from 'lucide-react';
+import { CheckCircle, Gift, AlertTriangle, TrendingUp } from 'lucide-react';
 
 const OfferDetailsSection = () => {
   return (
@@ -52,3 +52,4 @@ const OfferDetailsSection = () => {
 };
 
 export default OfferDetailsSection;
+
