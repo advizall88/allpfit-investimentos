@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -14,11 +15,18 @@ export default {
 			center: true,
 			padding: '2rem',
 			screens: {
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
 				'2xl': '1400px'
 			}
 		},
 		extend: {
 			colors: {
+        allpBlack: '#000000',
+        allpPurple: '#470e75',
+        allpOrange: '#ff6600',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -63,6 +71,10 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				}
 			},
+      fontFamily: {
+        sans: ['Roboto', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
+      },
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
@@ -84,11 +96,16 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+        'pulse-orange': {
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(255, 102, 0, 0.7)' },
+          '50%': { boxShadow: '0 0 0 10px rgba(255, 102, 0, 0)' },
+        },
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+        'pulse-orange': 'pulse-orange 2s infinite',
 			}
 		}
 	},
