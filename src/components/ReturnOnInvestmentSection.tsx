@@ -31,7 +31,7 @@ const ReturnOnInvestmentSection = () => {
             <CardContent className="space-y-4">
               {roiData.map((item, index) => (
                 <div key={index} className="flex justify-between items-center p-3 bg-gray-800 rounded-md">
-                  <span className="font-poppins">{item.students}</span>
+                  <span className="font-poppins text-white">{item.students}</span>
                   <span className="font-poppins font-bold text-allpOrange text-lg">{item.rate}</span>
                 </div>
               ))}
@@ -45,7 +45,7 @@ const ReturnOnInvestmentSection = () => {
             <CardContent className="space-y-4">
               {traditionalInvestments.map((item, index) => (
                 <div key={index} className="flex justify-between items-center p-3 bg-gray-800 rounded-md">
-                  <span className="font-poppins">{item.name}</span>
+                  <span className="font-poppins text-white">{item.name}</span>
                   <span className="font-poppins font-bold text-gray-400 text-lg">{item.rate}</span>
                 </div>
               ))}
@@ -58,3 +58,4 @@ const ReturnOnInvestmentSection = () => {
 };
 
 export default ReturnOnInvestmentSection;
+
