@@ -1,9 +1,9 @@
 
 import HeroSection from '@/components/HeroSection';
-import AboutAllpFitSection from '@/components/AboutAllpFitSection';
-import InvestmentOpportunitySection from '@/components/InvestmentOpportunitySection';
-import TestimonialsSection from '@/components/TestimonialsSection';
-import OfferDetailsSection from '@/components/OfferDetailsSection';
+import WhyInvestSection from '@/components/WhyInvestSection';
+import ReturnOnInvestmentSection from '@/components/ReturnOnInvestmentSection';
+import MarketPotentialSection from '@/components/MarketPotentialSection';
+import WhoWeAreSection from '@/components/WhoWeAreSection';
 import ContactFormSection from '@/components/ContactFormSection';
 import Footer from '@/components/Footer';
 
@@ -12,10 +12,10 @@ const Index = () => {
     <div className="flex flex-col min-h-screen bg-allpBlack">
       <main className="flex-grow">
         <HeroSection />
-        <AboutAllpFitSection />
-        <InvestmentOpportunitySection />
-        <TestimonialsSection />
-        <OfferDetailsSection />
+        <WhyInvestSection />
+        <ReturnOnInvestmentSection />
+        <MarketPotentialSection />
+        <WhoWeAreSection />
         <ContactFormSection />
       </main>
       <Footer />

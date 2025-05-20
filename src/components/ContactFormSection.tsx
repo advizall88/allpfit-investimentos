@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { useToast } from "@/hooks/use-toast"; // Corrected import path
+import { useToast } from "@/hooks/use-toast";
 import { Send } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card'; // Importando Card e CardContent de shadcn/ui
 
 const ContactFormSection = () => {
   const { toast } = useToast();
@@ -22,30 +23,33 @@ const ContactFormSection = () => {
     await new Promise(resolve => setTimeout(resolve, 1500));
     console.log("Form data submitted:", formData);
     toast({
-      title: "Mensagem Enviada!",
-      description: "Obrigado pelo seu interesse! Entraremos em contato em breve.",
-      variant: "default", // "default" should be black with white text as per shadcn defaults
+      title: "Mensagem Enviada com Sucesso!",
+      description: "Obrigado por seu interesse! Nossa equipe entrará em contato com os próximos passos para você se tornar sócio da Allp Fit.",
+      variant: "default",
     });
     setFormData({ name: '', email: '', phone: '' });
     setIsSubmitting(false);
   };
 
   return (
-    <section id="contact-form" className="py-16 md:py-24 bg-allpPurple">
+    <section id="contact-form" className="py-16 md:py-24 bg-allpBlack"> {/* Mudado para allpBlack para contraste com o card roxo */}
       <div className="container mx-auto px-6">
-        <div className="max-w-2xl mx-auto text-center">
+        <div className="max-w-2xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-poppins font-bold text-white mb-4">
-            Pronto para <span className="text-allpOrange">Transformar o Futuro</span> do Fitness?
+            Faça parte do <span className="text-allpOrange">futuro do fitness</span>.
           </h2>
-          <p className="text-lg text-gray-300 mb-8">
+          <p className="text-xl text-allpOrange font-semibold mb-8">
+            Rentável. Inovador. Acessível.
+          </p>
+          <p className="text-lg text-gray-300">
             Preencha o formulário abaixo e nossa equipe entrará em contato para fornecer todos os detalhes sobre como garantir sua cota na Allp Fit.
           </p>
         </div>
-        <Card className="max-w-xl mx-auto bg-white p-6 md:p-8 rounded-xl shadow-2xl">
+        <Card className="max-w-xl mx-auto bg-allpPurple p-6 md:p-8 rounded-xl shadow-2xl border-2 border-allpOrange"> {/* Card roxo com borda laranja */}
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <Label htmlFor="name" className="block text-sm font-medium text-gray-700 font-poppins">Nome Completo</Label>
+                <Label htmlFor="name" className="block text-sm font-medium text-white font-poppins">Nome Completo</Label>
                 <Input 
                   type="text" 
                   name="name" 
@@ -53,12 +57,12 @@ const ContactFormSection = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required 
-                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-allpOrange focus:border-allpOrange sm:text-sm p-3"
+                  className="mt-1 block w-full bg-gray-800 border-gray-700 text-white rounded-md shadow-sm focus:ring-allpOrange focus:border-allpOrange sm:text-sm p-3 placeholder-gray-400"
                   placeholder="Seu nome aqui"
                 />
               </div>
               <div>
-                <Label htmlFor="email" className="block text-sm font-medium text-gray-700 font-poppins">E-mail</Label>
+                <Label htmlFor="email" className="block text-sm font-medium text-white font-poppins">E-mail</Label>
                 <Input 
                   type="email" 
                   name="email" 
@@ -66,12 +70,12 @@ const ContactFormSection = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required 
-                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-allpOrange focus:border-allpOrange sm:text-sm p-3"
+                  className="mt-1 block w-full bg-gray-800 border-gray-700 text-white rounded-md shadow-sm focus:ring-allpOrange focus:border-allpOrange sm:text-sm p-3 placeholder-gray-400"
                   placeholder="seuemail@exemplo.com"
                 />
               </div>
               <div>
-                <Label htmlFor="phone" className="block text-sm font-medium text-gray-700 font-poppins">Telefone (WhatsApp)</Label>
+                <Label htmlFor="phone" className="block text-sm font-medium text-white font-poppins">Telefone (WhatsApp)</Label>
                 <Input 
                   type="tel" 
                   name="phone" 
@@ -79,7 +83,7 @@ const ContactFormSection = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   required 
-                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-allpOrange focus:border-allpOrange sm:text-sm p-3"
+                  className="mt-1 block w-full bg-gray-800 border-gray-700 text-white rounded-md shadow-sm focus:ring-allpOrange focus:border-allpOrange sm:text-sm p-3 placeholder-gray-400"
                   placeholder="(XX) XXXXX-XXXX"
                 />
               </div>
@@ -103,14 +107,5 @@ const ContactFormSection = () => {
     </section>
   );
 };
-
-// Dummy Card and CardContent components if not using shadcn/ui Card
-const Card = ({ className, children }: { className?: string, children: React.ReactNode }) => (
-  <div className={className}>{children}</div>
-);
-const CardContent = ({ children }: { children: React.ReactNode }) => (
-  <div>{children}</div>
-);
-
 
 export default ContactFormSection;
