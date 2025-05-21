@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -17,6 +16,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Image as LucideImage, MapPinned } from 'lucide-react'; // Icons for tabs
+import AllpFitLogo from './AllpFitLogo'; // Importando o logo
 
 const galleryImages = [
   {
@@ -118,7 +118,9 @@ const OurStructureSection = () => {
                 </DialogTrigger>
                 <DialogContent className="bg-allpBlack border-allpPurple max-w-4xl p-0">
                   <DialogHeader className="p-6">
-                    <DialogTitle className="text-allpOrange font-poppins text-2xl">Planta Baixa - Allp Fit</DialogTitle>
+                    <DialogTitle className="text-allpOrange font-poppins text-2xl flex items-center justify-center md:justify-start">
+                      Planta Baixa -&nbsp;<AllpFitLogo className="inline-block h-7 w-auto" alt="Allp Fit Logo" />
+                    </DialogTitle>
                   </DialogHeader>
                   <div className="p-2 md:p-6">
                     <img 

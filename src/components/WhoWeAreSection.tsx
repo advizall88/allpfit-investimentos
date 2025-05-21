@@ -14,13 +14,13 @@ const WhoWeAreSection = () => {
       
       {/* Conteúdo da seção - precisa ser relativo para ficar acima do overlay */}
       <div className="relative container mx-auto px-6 text-center">
-        <AllpFitLogo className="mb-8 mx-auto" /> {/* Removida a prop variant */}
+        <AllpFitLogo className="mb-8 mx-auto" alt="Allp Fit Logo Principal Quem Somos" />
         <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6">
           Quem <span className="text-allpOrange">Somos</span>
         </h2>
-        <div className="max-w-3xl mx-auto bg-allpBlack/80 p-8 rounded-lg shadow-xl"> {/* Leve transparência no card para integrar melhor */}
+        <div className="max-w-3xl mx-auto bg-allpBlack/80 p-8 rounded-lg shadow-xl">
           <p className="text-lg md:text-xl text-gray-200 leading-relaxed">
-            A <span className="text-allpOrange font-semibold">Allp Fit</span> é mais que uma academia: é um <span className="font-semibold">ecossistema de saúde e performance</span>, com experiência completa para o aluno e modelo de negócio escalável para investidores. Combinamos tecnologia, metodologia de treino exclusiva e uma gestão focada em resultados para transformar o mercado fitness.
+            A&nbsp;<AllpFitLogo className="inline-block h-5 w-auto mx-1 align-middle" alt="Allp Fit Logo" />&nbsp;é mais que uma academia: é um <span className="font-semibold">ecossistema de saúde e performance</span>, com experiência completa para o aluno e modelo de negócio escalável para investidores. Combinamos tecnologia, metodologia de treino exclusiva e uma gestão focada em resultados para transformar o mercado fitness.
           </p>
         </div>
       </div>

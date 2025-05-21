@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import AllpFitLogo from './AllpFitLogo';
@@ -14,9 +15,9 @@ const HeroSection = () => {
       
       {/* Conteúdo da Hero Section */}
       <div className="container mx-auto px-6 text-center relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-160px)] md:min-h-[calc(100vh-256px)]">
-        <AllpFitLogo className="mb-8 mx-auto" />
+        <AllpFitLogo className="mb-8 mx-auto" alt="Allp Fit Logo Principal Hero" />
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-poppins font-black mb-6 leading-tight max-w-4xl">
-          Invista na Academia <span className="text-allpOrange">Allp Fit</span>: Rentabilidade e Inovação no Mercado Fitness
+          Invista na Academia <AllpFitLogo className="inline-block h-10 md:h-14 lg:h-16 w-auto mx-1 align-middle" alt="Allp Fit Logo" />: Rentabilidade e Inovação no Mercado Fitness
         </h1>
         <p className="text-lg md:text-xl lg:text-2xl font-poppins font-light mb-10 max-w-3xl mx-auto">
           Torne-se sócio de uma academia de alto padrão com equipamentos Matrix, metodologia exclusiva e retorno real sobre seu capital.
