@@ -9,7 +9,7 @@ interface AllpFitLogoProps {
 const AllpFitLogo = ({ className = "", alt = "Allp Fit Logo" }: AllpFitLogoProps) => {
   return (
     <img
-      src="/lovable-uploads/cf090e6b-34ea-4780-b44c-c7f724003627.png"
+      src="/lovable-uploads/5d9478dc-17fb-4bf4-818f-29ae3601532c.png" // Nova imagem da logo
       alt={alt}
       // Definindo um tamanho padrão que pode ser sobrescrito pela prop className
       // block é para garantir que mx-auto funcione corretamente para centralização

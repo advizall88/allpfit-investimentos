@@ -14,7 +14,7 @@ const WhoWeAreSection = () => {
       
       {/* Conteúdo da seção - precisa ser relativo para ficar acima do overlay */}
       <div className="relative container mx-auto px-6 text-center">
-        <AllpFitLogo className="mb-8 mx-auto" variant="light" />
+        <AllpFitLogo className="mb-8 mx-auto" /> {/* Removida a prop variant */}
         <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6">
           Quem <span className="text-allpOrange">Somos</span>
         </h2>

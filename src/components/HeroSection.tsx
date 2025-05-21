@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import AllpFitLogo from './AllpFitLogo';
@@ -15,7 +14,7 @@ const HeroSection = () => {
       
       {/* Conteúdo da Hero Section */}
       <div className="container mx-auto px-6 text-center relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-160px)] md:min-h-[calc(100vh-256px)]">
-        <AllpFitLogo className="mb-8 mx-auto" variant="light" />
+        <AllpFitLogo className="mb-8 mx-auto" />
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-poppins font-black mb-6 leading-tight max-w-4xl">
           Invista na Academia <span className="text-allpOrange">Allp Fit</span>: Rentabilidade e Inovação no Mercado Fitness
         </h1>

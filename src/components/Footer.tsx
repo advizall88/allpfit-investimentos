@@ -1,4 +1,3 @@
-
 import React from 'react';
 import AllpFitLogo from './AllpFitLogo';
 
@@ -7,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="bg-allpBlack text-gray-400 py-8">
       <div className="container mx-auto px-6 text-center">
-        <AllpFitLogo className="mb-4 mx-auto" variant="light" />
+        <AllpFitLogo className="mb-4 mx-auto" />
         <p className="text-sm">
           &copy; {currentYear} Allp Fit. Todos os direitos reservados.
         </p>
