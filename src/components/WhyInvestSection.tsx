@@ -1,6 +1,7 @@
 import React from 'react';
 import { TrendingUp, Award, Users, Handshake, Check, DollarSign } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import AllpFitLogo from './AllpFitLogo'; // Importar o logo
 
 const features = [
   {
@@ -39,8 +40,8 @@ const WhyInvestSection = () => {
   return (
     <section id="why-invest" className="py-16 md:py-24 bg-allpBlack text-white">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-poppins font-bold text-center mb-12">
-          Por que investir na <span className="text-allpOrange">Allp Fit</span>?
+        <h2 className="text-3xl md:text-4xl font-poppins font-bold text-center mb-12 flex items-center justify-center flex-wrap">
+          Por que investir na&nbsp;<AllpFitLogo className="inline-block h-8 md:h-10 w-auto mx-1 align-middle" alt="Allp Fit Logo" />?
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
@@ -55,8 +56,7 @@ const WhyInvestSection = () => {
           <Button 
             size="lg" 
             className="bg-allpOrange text-white hover:bg-allpOrange/90 font-poppins font-semibold px-8 py-3 text-lg animate-pulse-orange"
-            // Adicionar um onClick apropriado quando a funcionalidade for definida
-            // onClick={() => console.log('Botão "quero fazer parte" clicado!')}
+            onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
           >
             QUERO FAZER PARTE
           </Button>
