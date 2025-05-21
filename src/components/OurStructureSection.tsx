@@ -20,20 +20,32 @@ import { Image as LucideImage, MapPinned } from 'lucide-react'; // Icons for tab
 
 const galleryImages = [
   {
-    src: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z3ltJTIwaW50ZXJpb3J8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=1000&q=80",
-    alt: "Interior moderno da academia com equipamentos de cardio",
+    src: "/lovable-uploads/3f584794-c581-42bc-b2e0-9da1d5a427fc.png",
+    alt: "Área de pesos livres da academia Allp Fit",
   },
   {
-    src: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3ltJTIwaW50ZXJpb3J8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=1000&q=80",
-    alt: "Área de musculação com diversos equipamentos",
+    src: "/lovable-uploads/bfc0248d-a5f1-4bc8-a263-dd57c986d9a4.png",
+    alt: "Fachada da academia Allp Fit",
   },
   {
-    src: "https://images.unsplash.com/photo-1593079831268-3381b0db4a77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Z3ltJTIwaW50ZXJpb3J8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=1000&q=80",
-    alt: "Halteres e equipamentos de peso livre",
+    src: "/lovable-uploads/b561ce33-4af9-49d6-8240-1418f15c7201.png",
+    alt: "Vista ampla da área de musculação da Allp Fit",
   },
   {
-    src: "https://images.unsplash.com/photo-1540496905036-5937c3760482?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGd5bSUyMGludGVyaW9yfGVufDB8fDB8fHww&auto=format&fit=crop&w=1000&q=80",
-    alt: "Visão ampla da academia com iluminação ambiente",
+    src: "/lovable-uploads/81e99406-3e8b-4e1b-95d0-c0d91441b129.png",
+    alt: "Equipamentos de cardio na academia Allp Fit",
+  },
+  {
+    src: "/lovable-uploads/02b01a54-2477-4e8d-8b53-f5e023427ea9.png",
+    alt: "Fileira de esteiras modernas na Allp Fit",
+  },
+  {
+    src: "/lovable-uploads/d2a7015c-3cec-44fb-8f2c-8c6333e49404.png",
+    alt: "Vista aérea da academia Allp Fit com estacionamento",
+  },
+  {
+    src: "/lovable-uploads/190bf71c-c2fd-427d-a51b-52d34257d3a8.png",
+    alt: "Área de equipamentos de musculação com iluminação moderna",
   }
 ];
 
@@ -126,4 +138,3 @@ const OurStructureSection = () => {
 };
 
 export default OurStructureSection;
-
