@@ -1,12 +1,20 @@
 
 import React from 'react';
 
-const AllpFitLogo = ({ className = "", variant = "dark" }: { className?: string; variant?: "light" | "dark" }) => {
-  const textColor = variant === "light" ? "text-white" : "text-allpBlack";
+interface AllpFitLogoProps {
+  className?: string;
+  alt?: string;
+}
+
+const AllpFitLogo = ({ className = "", alt = "Allp Fit Logo" }: AllpFitLogoProps) => {
   return (
-    <div className={`font-poppins font-black text-3xl ${textColor} ${className}`}>
-      <span className="text-allpOrange">ALLP</span> FIT
-    </div>
+    <img
+      src="/lovable-uploads/cf090e6b-34ea-4780-b44c-c7f724003627.png"
+      alt={alt}
+      // Definindo um tamanho padrão que pode ser sobrescrito pela prop className
+      // block é para garantir que mx-auto funcione corretamente para centralização
+      className={`block w-auto h-12 ${className}`} 
+    />
   );
 };
 
