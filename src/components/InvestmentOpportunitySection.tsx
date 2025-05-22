@@ -12,8 +12,8 @@ const InvestmentOpportunitySection = () => {
     },
     {
       icon: <DollarSign className="h-8 w-8 text-allpOrange mr-3 flex-shrink-0" />,
-      value: "R$ 100 MIL",
-      label: "de taxa de franquia",
+      value: "R$ 50 MIL", // Updated value
+      label: "valor da cota", // Updated label
     },
     {
       icon: <CalendarCheck className="h-8 w-8 text-allpOrange mr-3 flex-shrink-0" />,
