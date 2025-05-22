@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { TrendingUp, Award, Users, Handshake, Check, DollarSign, Star } from 'lucide-react'; // Adicionado Star
 import { Button } from '@/components/ui/button';
@@ -24,11 +23,6 @@ const features = [
     icon: <Handshake className="h-10 w-10 text-allpOrange mb-3" />,
     title: "Suporte Estratégico",
     description: "Processo de franquia transparente, suporte em todas as etapas e treinamento contínuo."
-  },
-  {
-    icon: <Users className="h-10 w-10 text-allpOrange mb-3" />,
-    title: "Conceito Top to All",
-    description: "O melhor do fitness, acessível a todos os públicos."
   },
   {
     icon: <Check className="h-10 w-10 text-allpOrange mb-3" />,
