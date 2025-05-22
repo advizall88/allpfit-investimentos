@@ -9,6 +9,7 @@ import {
   Tooltip,
   Cell,
   ResponsiveContainer, // Though ChartContainer handles this
+  CartesianGrid, // Added CartesianGrid here
 } from 'recharts';
 import {
   ChartContainer,
