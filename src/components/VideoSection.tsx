@@ -4,7 +4,7 @@ import { PlayCircle } from 'lucide-react'; // Usando um ícone relacionado a ví
 
 const VideoSection = () => {
   // TODO: Substitua este URL pelo link do seu vídeo embed (ex: YouTube, Vimeo)
-  const videoEmbedUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ"; // Exemplo de vídeo do YouTube
+  const videoEmbedUrl = "https://www.youtube.com/embed/d9hL2TKv9aA"; // Link atualizado
 
   return (
     <section id="presentation-video" className="py-16 md:py-24 bg-allpBlack text-white">
