@@ -7,7 +7,7 @@ import { ArrowRight } from 'lucide-react';
 const HeroSection = () => {
   return (
     <section 
-      style={{ backgroundImage: 'url(/lovable-uploads/ac8e6c96-9d03-47ff-bcbb-103a228876b1.png)' }}
+      style={{ backgroundImage: 'url(/lovable-uploads/cbeddab1-80a3-4323-b7cf-7bbd88cadd01.png)' }}
       className="bg-cover bg-center text-white py-20 md:py-32 relative"
     >
       {/* Overlay para melhorar a legibilidade do texto */}
