@@ -14,7 +14,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-allpBlack bg-opacity-60"></div>
       
       {/* Conteúdo da Hero Section */}
-      <div className="container mx-auto px-6 text-left relative z-10 flex flex-col items-start justify-center min-h-[calc(100vh-160px)] md:min-h-[calc(100vh-256px)]">
+      <div className="container mx-auto px-6 text-center relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-160px)] md:min-h-[calc(100vh-256px)]">
         <AllpFitLogo className="mb-8" alt="Allp Fit Logo Principal Hero" />
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-poppins font-black mb-6 leading-tight max-w-4xl">
           Invista na primeira rede de academias top to all do Brasil
@@ -35,4 +35,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
