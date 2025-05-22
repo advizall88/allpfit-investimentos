@@ -1,28 +1,34 @@
+
 import React from 'react';
-import { TrendingUp, Award, Users, Handshake, Check, DollarSign } from 'lucide-react';
+import { TrendingUp, Award, Users, Handshake, Check, DollarSign, Star } from 'lucide-react'; // Adicionado Star
 import { Button } from '@/components/ui/button';
 import AllpFitLogo from './AllpFitLogo'; // Importar o logo
 
 const features = [
   {
     icon: <TrendingUp className="h-10 w-10 text-allpOrange mb-3" />,
-    title: "Mercado em Expansão",
-    description: "R$ 8 bilhões/ano no Brasil. O setor fitness não para de crescer."
+    title: "Setor em Crescimento",
+    description: "Brasil: 2º maior mercado de academias. 65% dos brasileiros planejam cuidar mais da saúde em 2024."
+  },
+  {
+    icon: <Star className="h-10 w-10 text-allpOrange mb-3" />, // Novo ícone e item
+    title: "Reputação Sólida",
+    description: "+25 unidades (+60 mil alunos). Expansão para 400 unidades e 800 mil alunos até 2026."
   },
   {
     icon: <Award className="h-10 w-10 text-allpOrange mb-3" />,
-    title: "Estrutura Premium",
-    description: "Equipamentos de ponta Matrix® para a melhor experiência."
+    title: "Tecnologia de Ponta",
+    description: "Equipamentos de fitness de última linha (Matrix®) para eficiência, segurança e conforto."
+  },
+  {
+    icon: <Handshake className="h-10 w-10 text-allpOrange mb-3" />,
+    title: "Suporte Estratégico",
+    description: "Processo de franquia transparente, suporte em todas as etapas e treinamento contínuo."
   },
   {
     icon: <Users className="h-10 w-10 text-allpOrange mb-3" />,
     title: "Conceito Top to All",
     description: "O melhor do fitness, acessível a todos os públicos."
-  },
-  {
-    icon: <Handshake className="h-10 w-10 text-allpOrange mb-3" />,
-    title: "Suporte Completo",
-    description: "Acompanhamento em todas as fases do seu investimento e do negócio."
   },
   {
     icon: <Check className="h-10 w-10 text-allpOrange mb-3" />,
