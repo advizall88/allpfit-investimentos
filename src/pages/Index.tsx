@@ -1,4 +1,3 @@
-
 import HeroSection from '@/components/HeroSection';
 import VideoSection from '@/components/VideoSection';
 import WhyInvestSection from '@/components/WhyInvestSection';
@@ -7,6 +6,7 @@ import MarketPotentialSection from '@/components/MarketPotentialSection';
 import WhoWeAreSection from '@/components/WhoWeAreSection';
 import OurStructureSection from '@/components/OurStructureSection';
 import SupportProcessesSection from '@/components/SupportProcessesSection'; // Nova seção importada
+import InvestmentOpportunitySection from '@/components/InvestmentOpportunitySection'; // Nova seção importada
 import FaqSection from '@/components/FaqSection';
 import ContactFormSection from '@/components/ContactFormSection';
 import Footer from '@/components/Footer';
@@ -22,7 +22,8 @@ const Index = () => {
         <MarketPotentialSection />
         <WhoWeAreSection />
         <OurStructureSection />
-        <SupportProcessesSection /> {/* Nova seção adicionada aqui */}
+        <SupportProcessesSection />
+        <InvestmentOpportunitySection /> {/* Nova seção adicionada aqui */}
         <FaqSection />
         <ContactFormSection />
       </main>
