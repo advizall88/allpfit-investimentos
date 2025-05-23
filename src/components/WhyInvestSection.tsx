@@ -1,9 +1,8 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { TrendingUp, Award, Users, Handshake, Check, DollarSign, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import AllpFitLogo from './AllpFitLogo';
-import InvestmentFormPopup from './InvestmentFormPopup';
 
 const features = [
   {
@@ -39,7 +38,9 @@ const features = [
 ];
 
 const WhyInvestSection = () => {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const handleWhatsAppRedirect = () => {
+    window.open('https://wa.me/5567998184460?text=Ol%C3%A1!%20Acabei%20de%20vir%20da%20landing%20page%20e%20quero%20saber%20mais%20sobre%20o%20lan%C3%A7amento!', '_blank');
+  };
 
   return (
     <section id="why-invest" className="py-16 md:py-24 bg-allpBlack text-white">
@@ -60,17 +61,12 @@ const WhyInvestSection = () => {
           <Button 
             size="lg" 
             className="bg-allpOrange text-white hover:bg-allpOrange/90 font-poppins font-semibold px-8 py-3 text-lg animate-pulse-orange"
-            onClick={() => setIsPopupOpen(true)}
+            onClick={handleWhatsAppRedirect}
           >
             QUERO FAZER PARTE
           </Button>
         </div>
       </div>
-
-      <InvestmentFormPopup 
-        open={isPopupOpen} 
-        onOpenChange={setIsPopupOpen} 
-      />
     </section>
   );
 };

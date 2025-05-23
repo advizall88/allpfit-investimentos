@@ -1,12 +1,13 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from '@/components/ui/button';
 import AllpFitLogo from './AllpFitLogo';
-import InvestmentFormPopup from './InvestmentFormPopup';
 import { ArrowRight } from 'lucide-react';
 
 const HeroSection = () => {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const handleWhatsAppRedirect = () => {
+    window.open('https://wa.me/5567998184460?text=Ol%C3%A1!%20Acabei%20de%20vir%20da%20landing%20page%20e%20quero%20saber%20mais%20sobre%20o%20lan%C3%A7amento!', '_blank');
+  };
 
   return (
     <section 
@@ -31,16 +32,11 @@ const HeroSection = () => {
         <Button
           size="lg"
           className="bg-allpOrange hover:bg-orange-700 text-white font-poppins font-semibold text-lg px-10 py-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 animate-pulse-orange"
-          onClick={() => setIsPopupOpen(true)}
+          onClick={handleWhatsAppRedirect}
         >
           Quero ser investidor <ArrowRight className="ml-2 h-5 w-5" />
         </Button>
       </div>
-
-      <InvestmentFormPopup 
-        open={isPopupOpen} 
-        onOpenChange={setIsPopupOpen} 
-      />
     </section>
   );
 };

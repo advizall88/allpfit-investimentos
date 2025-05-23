@@ -1,11 +1,12 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from '@/components/ui/button';
 import { DollarSign, TrendingUp, CalendarCheck } from 'lucide-react';
-import InvestmentFormPopup from './InvestmentFormPopup';
 
 const InvestmentOpportunitySection = () => {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const handleWhatsAppRedirect = () => {
+    window.open('https://wa.me/5567998184460?text=Ol%C3%A1!%20Acabei%20de%20vir%20da%20landing%20page%20e%20quero%20saber%20mais%20sobre%20o%20lan%C3%A7amento!', '_blank');
+  };
 
   const stats = [
     {
@@ -56,18 +57,13 @@ const InvestmentOpportunitySection = () => {
             <Button 
               size="lg" 
               className="bg-allpOrange text-white hover:bg-allpOrange/90 font-poppins font-semibold px-10 py-4 text-xl w-full md:w-auto animate-pulse-orange"
-              onClick={() => setIsPopupOpen(true)}
+              onClick={handleWhatsAppRedirect}
             >
               AGORA É SUA VEZ
             </Button>
           </div>
         </div>
       </div>
-
-      <InvestmentFormPopup 
-        open={isPopupOpen} 
-        onOpenChange={setIsPopupOpen} 
-      />
     </section>
   );
 };
