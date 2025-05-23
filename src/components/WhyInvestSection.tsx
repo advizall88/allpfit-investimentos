@@ -1,7 +1,9 @@
-import React from 'react';
-import { TrendingUp, Award, Users, Handshake, Check, DollarSign, Star } from 'lucide-react'; // Adicionado Star
+
+import React, { useState } from 'react';
+import { TrendingUp, Award, Users, Handshake, Check, DollarSign, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import AllpFitLogo from './AllpFitLogo'; // Importar o logo
+import AllpFitLogo from './AllpFitLogo';
+import InvestmentFormPopup from './InvestmentFormPopup';
 
 const features = [
   {
@@ -10,7 +12,7 @@ const features = [
     description: "Brasil: 2º maior mercado de academias. 65% dos brasileiros planejam cuidar mais da saúde em 2024."
   },
   {
-    icon: <Star className="h-10 w-10 text-allpOrange mb-3" />, // Novo ícone e item
+    icon: <Star className="h-10 w-10 text-allpOrange mb-3" />,
     title: "Reputação Sólida",
     description: "+25 unidades (+60 mil alunos). Expansão para 400 unidades e 800 mil alunos até 2026."
   },
@@ -37,6 +39,8 @@ const features = [
 ];
 
 const WhyInvestSection = () => {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
   return (
     <section id="why-invest" className="py-16 md:py-24 bg-allpBlack text-white">
       <div className="container mx-auto px-6">
@@ -56,12 +60,17 @@ const WhyInvestSection = () => {
           <Button 
             size="lg" 
             className="bg-allpOrange text-white hover:bg-allpOrange/90 font-poppins font-semibold px-8 py-3 text-lg animate-pulse-orange"
-            onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => setIsPopupOpen(true)}
           >
             QUERO FAZER PARTE
           </Button>
         </div>
       </div>
+
+      <InvestmentFormPopup 
+        open={isPopupOpen} 
+        onOpenChange={setIsPopupOpen} 
+      />
     </section>
   );
 };

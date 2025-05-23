@@ -1,9 +1,12 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { DollarSign, TrendingUp, Zap, CalendarCheck } from 'lucide-react'; // Usando ícones mais genéricos ou apropriados
+import { DollarSign, TrendingUp, CalendarCheck } from 'lucide-react';
+import InvestmentFormPopup from './InvestmentFormPopup';
 
 const InvestmentOpportunitySection = () => {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
   const stats = [
     {
       icon: <TrendingUp className="h-8 w-8 text-allpOrange mr-3 flex-shrink-0" />,
@@ -12,8 +15,8 @@ const InvestmentOpportunitySection = () => {
     },
     {
       icon: <DollarSign className="h-8 w-8 text-allpOrange mr-3 flex-shrink-0" />,
-      value: "R$ 50 MIL", // Updated value
-      label: "valor da cota", // Updated label
+      value: "R$ 50 MIL",
+      label: "valor da cota",
     },
     {
       icon: <CalendarCheck className="h-8 w-8 text-allpOrange mr-3 flex-shrink-0" />,
@@ -27,7 +30,6 @@ const InvestmentOpportunitySection = () => {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div className="text-center md:text-left">
-            {/* Usando uma imagem existente do projeto que mostra pessoas malhando */}
             <img 
               src="/lovable-uploads/b8dda80f-0102-46ad-8caf-93a071a61134.png" 
               alt="Pessoa malhando na academia Allp Fit" 
@@ -54,13 +56,18 @@ const InvestmentOpportunitySection = () => {
             <Button 
               size="lg" 
               className="bg-allpOrange text-white hover:bg-allpOrange/90 font-poppins font-semibold px-10 py-4 text-xl w-full md:w-auto animate-pulse-orange"
-              onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => setIsPopupOpen(true)}
             >
               AGORA É SUA VEZ
             </Button>
           </div>
         </div>
       </div>
+
+      <InvestmentFormPopup 
+        open={isPopupOpen} 
+        onOpenChange={setIsPopupOpen} 
+      />
     </section>
   );
 };
