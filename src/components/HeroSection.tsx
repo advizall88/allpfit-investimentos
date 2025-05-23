@@ -23,7 +23,7 @@ const HeroSection = () => {
           Aproveite essa oportunidade, com lucro de 26 a 40%. Cotas a partir de R$50 mil
         </p>
         <p className="text-lg md:text-xl lg:text-2xl font-poppins font-light mb-10 max-w-3xl">
-          Torne-se sócio de uma academia de alto padrão com equipamentos Matrix, metodologia exclusiva e retorno real sobre seu capital.
+          Aproveite essa oportunidade, com lucro de 26% a 40%, com cotas a partir de R$50 mil
         </p>
         <Button
           size="lg"
