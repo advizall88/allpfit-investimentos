@@ -1,27 +1,44 @@
 
 import React from 'react';
-import AllpFitLogo from './AllpFitLogo'; // Reutilizando o logo
 
 const WhoWeAreSection = () => {
   return (
     <section 
       id="who-we-are" 
-      className="relative py-16 md:py-24 text-white bg-cover bg-center"
-      style={{ backgroundImage: "url('/lovable-uploads/931d54da-3dda-4c62-92f7-3c5167b6b58c.png')" }}
+      className="py-16 md:py-24 text-white bg-allpBlack"
     >
-      {/* Overlay escuro para melhorar a legibilidade do texto */}
-      <div className="absolute inset-0 bg-allpBlack opacity-60"></div>
-      
-      {/* Conteúdo da seção - precisa ser relativo para ficar acima do overlay */}
-      <div className="relative container mx-auto px-6 text-center">
-        <AllpFitLogo className="mb-8 mx-auto" alt="Allp Fit Logo Principal Quem Somos" />
-        <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6">
+      <div className="container mx-auto px-6">
+        <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-12 text-center">
           Quem <span className="text-allpOrange">Somos</span>
         </h2>
-        <div className="max-w-3xl mx-auto bg-allpBlack/80 p-8 rounded-lg shadow-xl">
-          <p className="text-lg md:text-xl text-gray-200 leading-relaxed">
-            A&nbsp;<AllpFitLogo className="inline-block h-5 w-auto mx-1 align-middle" alt="Allp Fit Logo" />&nbsp;é mais que uma academia: é um <span className="font-semibold">ecossistema de saúde e performance</span>, com experiência completa para o aluno e modelo de negócio escalável para investidores. Combinamos tecnologia, metodologia de treino exclusiva e uma gestão focada em resultados para transformar o mercado fitness.
-          </p>
+        <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
+          {/* Coluna da Imagem */}
+          <div className="w-full md:w-1/2 flex justify-center md:justify-end">
+            <img 
+              src="/lovable-uploads/51602010-f450-4603-849c-3dade939353d.png" 
+              alt="Vinicius Rezende - Diretor de Expansão Allp Fit" 
+              className="rounded-lg shadow-xl object-cover w-full max-w-md h-auto md:max-h-[500px]"
+            />
+          </div>
+          
+          {/* Coluna do Texto */}
+          <div className="w-full md:w-1/2 text-left">
+            <p className="text-lg md:text-xl text-gray-200 leading-relaxed mb-4">
+              Sou Vinicius Rezende, empresário e Diretor de Expansão da Allp Fit, uma das redes fitness que mais cresce no país.
+            </p>
+            <p className="text-lg md:text-xl text-gray-200 leading-relaxed mb-4">
+              Após anos liderando projetos de sucesso no setor, decidi abrir uma oportunidade única: a venda de cotas da nossa nova unidade — um investimento acessível, lucrativo e com gestão profissional.
+            </p>
+            <p className="text-lg md:text-xl text-gray-200 leading-relaxed mb-4">
+              Não é só uma academia. É um negócio inteligente, em um mercado sólido e em expansão.
+            </p>
+            <p className="text-lg md:text-xl text-gray-200 leading-relaxed font-semibold">
+              Se você busca investir com propósito e retorno real, essa é a hora.
+            </p>
+            <p className="text-lg md:text-xl text-gray-200 leading-relaxed font-semibold">
+              Vamos crescer juntos.
+            </p>
+          </div>
         </div>
       </div>
     </section>
