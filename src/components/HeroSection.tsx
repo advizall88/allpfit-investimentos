@@ -21,7 +21,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 text-center relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-160px)] md:min-h-[calc(100vh-256px)]">
         <AllpFitLogo className="mb-8" alt="Allp Fit Logo Principal Hero" />
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-poppins font-black mb-6 leading-tight max-w-4xl">
-          Participe do maior investimento fitness acessível do país
+          Com R$ 50 mil, você se torna sócio da rede que está transformando o mercado fitness no Brasil.
         </h1>
         <p className="text-lg md:text-xl lg:text-2xl font-poppins font-light mb-10 max-w-3xl">
           Aproveite essa oportunidade, com lucro de 26% a 40%, com cotas a partir de R$50 mil
