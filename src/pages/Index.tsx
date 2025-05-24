@@ -3,7 +3,7 @@ import HeroSection from '@/components/HeroSection';
 import VideoSection from '@/components/VideoSection';
 import WhyInvestSection from '@/components/WhyInvestSection';
 import ReturnOnInvestmentSection from '@/components/ReturnOnInvestmentSection';
-import FeasibilityStudySection from '@/components/FeasibilityStudySection'; // Importando a nova seção
+// import FeasibilityStudySection from '@/components/FeasibilityStudySection'; // Removido
 // import MarketPotentialSection from '@/components/MarketPotentialSection'; // Removido
 import WhoWeAreSection from '@/components/WhoWeAreSection';
 import OurStructureSection from '@/components/OurStructureSection';
@@ -21,7 +21,7 @@ const Index = () => {
         <VideoSection />
         <WhyInvestSection />
         <ReturnOnInvestmentSection />
-        <FeasibilityStudySection /> {/* Adicionando a nova seção aqui */}
+        {/* <FeasibilityStudySection /> */} {/* Removido */}
         {/* <MarketPotentialSection /> */} {/* Removido */}
         <WhoWeAreSection />
         <OurStructureSection />
