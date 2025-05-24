@@ -50,8 +50,8 @@ const galleryImages = [
 ];
 
 const floorPlanImage = {
-  src: "https://placehold.co/1200x800?text=Planta+Baixa+Allp+Fit&font=poppins",
-  alt: "Planta baixa da academia Allp Fit",
+  src: "/lovable-uploads/cbeddab1-80a3-4323-b7cf-7bbd88cadd01.png", // Updated image path
+  alt: "Planta baixa detalhada da academia Allp Fit", // Updated alt text for clarity
 };
 
 const OurStructureSection = () => {
