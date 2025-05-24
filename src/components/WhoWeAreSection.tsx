@@ -22,7 +22,7 @@ const WhoWeAreSection = () => {
           </div>
           
           {/* Coluna do Texto */}
-          <div className="w-full md:w-1/2 text-left">
+          <div className="w-full md:w-1/2 text-left break-words"> {/* Adicionada a classe break-words */}
             <p className="text-lg md:text-xl text-gray-200 leading-relaxed mb-4">
               Sou Vinicius Rezende, empresário e Diretor de Expansão da Allp Fit, uma das redes fitness que mais cresce no país.
             </p>
@@ -32,7 +32,7 @@ const WhoWeAreSection = () => {
             <p className="text-lg md:text-xl text-gray-200 leading-relaxed mb-4">
               Não é só uma academia. É um negócio inteligente, em um mercado sólido e em expansão.
             </p>
-            <p className="text-lg md:text-xl text-gray-200 leading-relaxed font-semibold">
+            <p className="text-lg md:text-xl text-gray-200 leading-relaxed font-semibold mb-4"> {/* Adicionado mb-4 para consistência de espaçamento */}
               Se você busca investir com propósito e retorno real, essa é a hora.
             </p>
             <p className="text-lg md:text-xl text-gray-200 leading-relaxed font-semibold">
