@@ -7,9 +7,12 @@ const SuccessCaseSection = () => {
   return (
     <section id="success-case" className="py-16 md:py-24 bg-gray-50 text-allpBlack">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-poppins font-bold text-center mb-12 text-allpPurple">
+        <h2 className="text-3xl md:text-4xl font-poppins font-bold text-center mb-4 text-allpPurple">
           Case de <span className="text-allpOrange">Sucesso</span>
         </h2>
+        <p className="text-xl md:text-2xl font-poppins font-medium text-center mb-12 text-gray-700">
+          Unidade Cidade Nobre Ipatinga - MG
+        </p>
         <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
           <Card className="bg-white shadow-lg hover:shadow-xl transition-shadow flex flex-col">
             <CardHeader className="pb-4">
