@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import AllpFitLogo from './AllpFitLogo';
@@ -19,7 +20,7 @@ const ReturnOnInvestmentSection = () => {
     <section id="roi" className="py-16 md:py-24 bg-allpPurple text-white">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl md:text-4xl font-poppins font-bold text-center mb-4 flex items-center justify-center flex-wrap">
-          Seu dinheiro <span className="text-allpOrange">rende mais</span> com a&nbsp;<AllpFitLogo className="inline-block h-8 md:h-10 w-auto mx-1 align-middle" alt="Allp Fit Logo" />!
+          Seu dinheiro <span className="text-allpOrange">rende mais</span> com a&nbsp;<AllpFitLogo className="inline-block h-8 md:h-10 w-auto mx-2 align-middle" alt="Allp Fit Logo" />
         </h2>
         <p className="text-center text-gray-300 mb-12 text-lg">Projeções de ROI com base no número de alunos e comparativo com o mercado.</p>
         
