@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -16,7 +15,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Image as LucideImage, MapPinned, Expand } from 'lucide-react'; // Icons for tabs
+import { Image as LucideImage, MapPinned, Expand, Download } from 'lucide-react'; // Icons for tabs, added Download
 import AllpFitLogo from './AllpFitLogo'; // Importando o logo
 
 const galleryImages = [
@@ -51,11 +50,22 @@ const galleryImages = [
 ];
 
 const floorPlanImage = {
-  src: "/lovable-uploads/369783ec-8b02-4968-9fb5-225c3963c38a.png", // Updated image path
-  alt: "Planta baixa detalhada da nova unidade Allp Fit", // Updated alt text for clarity
+  src: "/lovable-uploads/369783ec-8b02-4968-9fb5-225c3963c38a.png",
+  alt: "Planta baixa detalhada da nova unidade Allp Fit",
+  filename: "planta-baixa-allpfit.png"
 };
 
 const OurStructureSection = () => {
+
+  const handleDownloadFloorPlan = () => {
+    const link = document.createElement('a');
+    link.href = floorPlanImage.src;
+    link.download = floorPlanImage.filename || 'planta-baixa.png';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section id="our-structure" className="py-16 md:py-24 bg-allpBlack text-white">
       <div className="container mx-auto px-6">
@@ -138,10 +148,19 @@ const OurStructureSection = () => {
                   </Button>
                 </DialogTrigger>
                 <DialogContent className="bg-allpBlack border-allpPurple max-w-4xl p-0">
-                  <DialogHeader className="p-6">
-                    <DialogTitle className="text-allpOrange font-poppins text-2xl flex items-center justify-center md:justify-start">
+                  <DialogHeader className="p-6 flex flex-row justify-between items-center">
+                    <DialogTitle className="text-allpOrange font-poppins text-2xl flex items-center">
                       Planta Baixa -&nbsp;<AllpFitLogo className="inline-block h-7 w-auto" alt="Allp Fit Logo" />
                     </DialogTitle>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={handleDownloadFloorPlan}
+                      className="bg-allpGreen hover:bg-allpGreen/90 text-white font-poppins"
+                    >
+                      <Download className="mr-2 h-4 w-4" />
+                      Baixar Planta
+                    </Button>
                   </DialogHeader>
                   <div className="p-2 md:p-6">
                     <img 
@@ -161,4 +180,3 @@ const OurStructureSection = () => {
 };
 
 export default OurStructureSection;
-
