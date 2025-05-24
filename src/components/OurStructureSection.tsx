@@ -81,7 +81,7 @@ const OurStructureSection = () => {
             >
               <CarouselContent>
                 {galleryImages.map((image, index) => (
-                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <CarouselItem key={index} className="md:basis-full lg:basis-2/3">
                     <div className="p-1">
                       <div className="aspect-video bg-gray-800 rounded-lg overflow-hidden shadow-lg">
                         <img
