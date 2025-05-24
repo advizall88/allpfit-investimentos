@@ -10,7 +10,7 @@ import SuccessCaseSection from '@/components/SuccessCaseSection';
 import WhoWeAreSection from '@/components/WhoWeAreSection';
 import OurStructureSection from '@/components/OurStructureSection';
 import SupportProcessesSection from '@/components/SupportProcessesSection';
-import InvestmentOpportunitySection from '@/components/InvestmentOpportunitySection';
+// import InvestmentOpportunitySection from '@/components/InvestmentOpportunitySection'; // Removido
 import FaqSection from '@/components/FaqSection';
 import ContactFormSection from '@/components/ContactFormSection';
 import Footer from '@/components/Footer';
@@ -30,7 +30,7 @@ const Index = () => {
         <WhoWeAreSection />
         <OurStructureSection />
         <SupportProcessesSection />
-        <InvestmentOpportunitySection />
+        {/* <InvestmentOpportunitySection /> */} {/* Removido */}
         <FaqSection />
         <ContactFormSection />
       </main>
@@ -40,3 +40,4 @@ const Index = () => {
 };
 
 export default Index;
+
