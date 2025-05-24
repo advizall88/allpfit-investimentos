@@ -15,7 +15,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Image as LucideImage, MapPinned } from 'lucide-react'; // Icons for tabs
+import { Image as LucideImage, MapPinned, Expand } from 'lucide-react'; // Icons for tabs
 import AllpFitLogo from './AllpFitLogo'; // Importando o logo
 
 const galleryImages = [
@@ -83,13 +83,33 @@ const OurStructureSection = () => {
                 {galleryImages.map((image, index) => (
                   <CarouselItem key={index} className="md:basis-full lg:basis-2/3">
                     <div className="p-1">
-                      <div className="aspect-video bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-                        <img
-                          src={image.src}
-                          alt={image.alt}
-                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                        />
-                      </div>
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <div className="aspect-video bg-gray-800 rounded-lg overflow-hidden shadow-lg cursor-pointer relative group">
+                            <img
+                              src={image.src}
+                              alt={image.alt}
+                              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                              <Expand className="h-12 w-12 text-white" />
+                            </div>
+                          </div>
+                        </DialogTrigger>
+                        <DialogContent className="bg-allpBlack border-allpPurple max-w-5xl p-0">
+                          <DialogHeader className="p-4 absolute top-0 right-0 z-10">
+                            {/* DialogTitle can be empty or customized if needed */}
+                          </DialogHeader>
+                          <div className="p-2 md:p-4">
+                            <img 
+                              src={image.src} 
+                              alt={image.alt} 
+                              className="w-full h-auto rounded-md object-contain max-h-[85vh]" 
+                            />
+                          </div>
+                            <p className="text-center text-sm text-gray-400 pb-4">{image.alt}</p>
+                        </DialogContent>
+                      </Dialog>
                     </div>
                   </CarouselItem>
                 ))}
@@ -98,7 +118,7 @@ const OurStructureSection = () => {
               <CarouselNext className="text-allpOrange border-allpOrange hover:bg-allpOrange hover:text-white disabled:text-gray-500 disabled:border-gray-500" />
             </Carousel>
             <p className="text-center text-gray-400 mt-6 text-sm">
-              Arraste para ver mais imagens da nossa estrutura.
+              Clique nas imagens para ampliar. Arraste para ver mais.
             </p>
           </TabsContent>
 
