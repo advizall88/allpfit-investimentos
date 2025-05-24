@@ -24,7 +24,7 @@ const HeroSection = () => {
           Com R$ 50 mil, você se torna sócio da rede que transforma o mercado fitness no Brasil. Allp Fit:
         </h1>
         <p className="text-lg md:text-xl lg:text-2xl font-poppins font-light mb-10 max-w-3xl">
-          gestão profissional, excelência e um modelo que gera receita para investidores como você.
+          Gestão profissional, excelência e um modelo que gera receita para investidores como você.
         </p>
         <Button
           size="lg"
@@ -39,3 +39,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
