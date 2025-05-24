@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -50,8 +51,8 @@ const galleryImages = [
 ];
 
 const floorPlanImage = {
-  src: "/lovable-uploads/cbeddab1-80a3-4323-b7cf-7bbd88cadd01.png", // Updated image path
-  alt: "Planta baixa detalhada da academia Allp Fit", // Updated alt text for clarity
+  src: "/lovable-uploads/369783ec-8b02-4968-9fb5-225c3963c38a.png", // Updated image path
+  alt: "Planta baixa detalhada da nova unidade Allp Fit", // Updated alt text for clarity
 };
 
 const OurStructureSection = () => {
@@ -160,3 +161,4 @@ const OurStructureSection = () => {
 };
 
 export default OurStructureSection;
+
