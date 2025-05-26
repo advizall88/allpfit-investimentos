@@ -15,7 +15,7 @@ const WhoWeAreSection = () => {
           {/* Coluna da Imagem */}
           <div className="w-full md:w-1/2 flex justify-center md:justify-end">
             <img 
-              src="/lovable-uploads/51602010-f450-4603-849c-3dade939353d.png" 
+              src="/lovable-uploads/2a9ae914-9e92-46b4-b9fe-1c01a35a5b2a.png" 
               alt="Vinicius Rezende - Diretor de Expansão Allp Fit" 
               className="rounded-lg shadow-xl object-cover w-full max-w-md h-auto md:max-h-[500px]"
             />
@@ -46,3 +46,4 @@ const WhoWeAreSection = () => {
 };
 
 export default WhoWeAreSection;
+
