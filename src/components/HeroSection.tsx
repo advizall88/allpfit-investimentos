@@ -11,7 +11,7 @@ const HeroSection = () => {
 
   return (
     <section 
-      style={{ backgroundImage: 'url(/lovable-uploads/167c0d24-2855-483e-ae9b-f2b33090f83a.png)' }}
+      style={{ backgroundImage: 'url(/lovable-uploads/78a9d90a-845e-4aa6-8381-40a49d2fae3d.png)' }}
       className="bg-cover bg-center text-white py-20 md:py-32 relative"
     >
       {/* Overlay para melhorar a legibilidade do texto */}
@@ -21,7 +21,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-6 text-center relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-160px)] md:min-h-[calc(100vh-256px)]">
         <AllpFitLogo className="mb-8" alt="Allp Fit Logo Principal Hero" />
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-poppins font-black mb-6 leading-tight max-w-4xl">
-          Transforme seu investimento em <span className="text-allpOrange">renda passiva e escalável</span>
+          Transforme seu investimento em renda passiva e <span className="text-allpOrange">escalável</span>
         </h1>
         <p className="text-lg md:text-xl lg:text-2xl font-poppins font-light mb-10 max-w-3xl whitespace-pre-line">
           {'Modelo inovador, resultados comprovados.\nCotistas exclusivos, vagas restritas.'}
@@ -39,3 +39,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
