@@ -11,7 +11,7 @@ const HeroSection = () => {
 
   return (
     <section 
-      style={{ backgroundImage: 'url(/lovable-uploads/78a9d90a-845e-4aa6-8381-40a49d2fae3d.png)' }}
+      style={{ backgroundImage: 'url(/lovable-uploads/167c0d24-2855-483e-ae9b-f2b33090f83a.png)' }}
       className="bg-cover bg-center text-white py-20 md:py-32 relative"
     >
       {/* Overlay para melhorar a legibilidade do texto */}
