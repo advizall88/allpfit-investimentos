@@ -1,6 +1,7 @@
 
 import HeroSection from '@/components/HeroSection';
 import VideoSection from '@/components/VideoSection';
+import AllpFitRevolutionSection from '@/components/AllpFitRevolutionSection';
 import WhyInvestSection from '@/components/WhyInvestSection';
 import ReturnOnInvestmentSection from '@/components/ReturnOnInvestmentSection';
 import SuccessCaseSection from '@/components/SuccessCaseSection';
@@ -21,6 +22,7 @@ const Index = () => {
       <main className="flex-grow">
         <HeroSection />
         <VideoSection />
+        <AllpFitRevolutionSection />
         <WhyInvestSection />
         <ReturnOnInvestmentSection />
         <SuccessCaseSection />
@@ -40,4 +42,3 @@ const Index = () => {
 };
 
 export default Index;
-
