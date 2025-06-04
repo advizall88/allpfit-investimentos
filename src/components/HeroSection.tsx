@@ -18,9 +18,6 @@ const HeroSection = () => {
         <h1 className="md:text-6xl lg:text-7xl font-poppins font-black mb-6 leading-tight max-w-4xl py-0 my-[15px] px-0 mx-0 text-3xl">
           Transforme seu investimento em renda passiva e <span className="text-allpOrange">escalável</span>
         </h1>
-        <p className="text-lg md:text-xl lg:text-2xl font-poppins font-light mb-10 max-w-3xl whitespace-pre-line px-[40px]">
-          {'Modelo inovador, resultados comprovados.\nCotistas exclusivos, vagas restritas.'}
-        </p>
         <Button size="lg" className="bg-allpOrange hover:bg-orange-700 text-white font-poppins font-semibold text-lg px-10 py-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 animate-pulse-orange" onClick={handleWhatsAppRedirect}>
           Quero ser investidor <ArrowRight className="ml-2 h-5 w-5" />
         </Button>
