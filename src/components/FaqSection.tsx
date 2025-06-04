@@ -39,9 +39,6 @@ const FaqSection = () => {
           <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-4">
             Perguntas <span className="text-allpOrange">Frequentes</span>
           </h2>
-          <p className="text-lg text-gray-300">
-            Tire suas dúvidas sobre o investimento na Allp Fit.
-          </p>
         </div>
         <div className="max-w-2xl mx-auto">
           <Accordion type="single" collapsible className="w-full space-y-4">

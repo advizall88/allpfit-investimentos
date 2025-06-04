@@ -9,19 +9,14 @@ const supportItemsCol1 = [
   "TREINAMENTO FRANQUEADO",
   "TREINAMENTO DA EQUIPE",
   "SISTEMA DE GESTÃO",
-  "MOTOR DE RECORRÊNCIA",
   "APOIO MARKETING",
 ];
 
 const supportItemsCol2 = [
   "SISTEMA DE B.I",
-  "SISTEMA DE NPS",
   "APOIO FISCAL E DOCUMENTAL",
   "APOIO JURÍDICO (20% salário min)",
-  "NANO GESTÃO",
   "ASSESSORIA SEMANAL",
-  "COMPRA COLETIVA",
-  "APOIO FLUXO DE OBRA",
 ];
 
 const SupportProcessesSection = () => {
