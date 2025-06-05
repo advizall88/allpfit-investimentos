@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import AllpFitLogo from './AllpFitLogo';
 import { ArrowRight } from 'lucide-react';
 
 const HeroSection = () => {
@@ -12,13 +11,12 @@ const HeroSection = () => {
   return (
     <section style={{
       backgroundImage: 'url(/lovable-uploads/1b95c159-aec2-42ae-8270-00b256ef4ae0.png)'
-    }} className="bg-cover bg-center text-white py-20 md:py-32 relative">
+    }} className="bg-cover bg-center text-white py-14 md:py-22 relative">
       {/* Overlay para melhorar a legibilidade do texto */}
       <div className="absolute inset-0 bg-allpBlack bg-opacity-60"></div>
       
       {/* Conteúdo da Hero Section */}
-      <div className="container mx-auto px-6 text-center relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-160px)] md:min-h-[calc(100vh-256px)]">
-        <AllpFitLogo className="mb-8" alt="Allp Fit Logo Principal Hero" />
+      <div className="container mx-auto px-6 text-center relative z-10 flex flex-col items-center justify-center min-h-[calc(70vh-112px)] md:min-h-[calc(70vh-179px)]">
         <h1 className="md:text-6xl lg:text-7xl font-poppins font-black mb-6 leading-tight max-w-4xl py-0 my-[15px] px-0 mx-0 text-3xl">
           Transforme seu investimento em renda passiva e <span className="text-allpOrange">escalável</span>
         </h1>
