@@ -1,4 +1,5 @@
 
+import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import OurStructureSection from '@/components/OurStructureSection';
 import AllpFitRevolutionSection from '@/components/AllpFitRevolutionSection';
@@ -15,6 +16,7 @@ import Footer from '@/components/Footer';
 const Index = () => {
   return (
     <div className="flex flex-col min-h-screen bg-allpBlack">
+      <Header />
       <main className="flex-grow">
         <HeroSection />
         <WhyInvestSection />
