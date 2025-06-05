@@ -11,18 +11,13 @@ const HeroSection = () => {
 
   return (
     <section style={{
-      backgroundImage: 'url(/lovable-uploads/167c0d24-2855-483e-ae9b-f2b33090f83a.png)'
+      backgroundImage: 'url(/lovable-uploads/1b95c159-aec2-42ae-8270-00b256ef4ae0.png)'
     }} className="bg-cover bg-center text-white py-20 md:py-32 relative">
-      {/* Logo no topo com 15px de distância */}
-      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-20">
-        <AllpFitLogo className="h-16 w-auto" alt="Allp Fit Logo Topo" />
-      </div>
-
       {/* Overlay para melhorar a legibilidade do texto */}
       <div className="absolute inset-0 bg-allpBlack bg-opacity-60"></div>
       
       {/* Conteúdo da Hero Section */}
-      <div className="container mx-auto px-6 text-center relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-160px)] md:min-h-[calc(100vh-256px)] pt-20">
+      <div className="container mx-auto px-6 text-center relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-160px)] md:min-h-[calc(100vh-256px)]">
         <AllpFitLogo className="mb-8" alt="Allp Fit Logo Principal Hero" />
         <h1 className="md:text-6xl lg:text-7xl font-poppins font-black mb-6 leading-tight max-w-4xl py-0 my-[15px] px-0 mx-0 text-3xl">
           Transforme seu investimento em renda passiva e <span className="text-allpOrange">escalável</span>

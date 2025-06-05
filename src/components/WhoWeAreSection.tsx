@@ -18,7 +18,7 @@ const WhoWeAreSection = () => {
                 className="rounded-lg shadow-xl object-cover w-full max-w-md h-auto md:max-h-[500px] mb-4"
               />
               <h2 className="text-2xl md:text-3xl font-poppins font-bold text-allpOrange">
-                Sou Vínicius Rezende
+                Vínicius Rezende
               </h2>
             </div>
           </div>
