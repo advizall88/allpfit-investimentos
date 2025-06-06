@@ -26,7 +26,7 @@ const AllpFitRevolutionSection = () => {
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-poppins font-bold mb-6">
+          <h2 className="text-3xl md:text-5xl font-poppins font-bold mb-6 bg-slate-950">
             A <span className="text-allpOrange">ALLP FIT</span> REPRESENTA<br />
             UMA <span className="text-allpOrange">REVOLUÇÃO</span> NO MERCADO<br />
             <span className="text-allpOrange">DE ACADEMIAS</span> NO BRASIL.
