@@ -1,6 +1,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageCircle, X, Send, User, Phone } from 'lucide-react';
+import { MessageCircle, X, Send, User, Phone, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -22,6 +22,9 @@ const ChatWidget = () => {
   const [showContactForm, setShowContactForm] = useState(true);
   const [customerName, setCustomerName] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
+  const [customerEmail, setCustomerEmail] = useState('');
+  const [phoneError, setPhoneError] = useState('');
+  const [emailError, setEmailError] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -32,8 +35,75 @@ const ChatWidget = () => {
     scrollToBottom();
   }, [messages]);
 
+  // Função para formatar telefone
+  const formatPhone = (value: string) => {
+    // Remove todos os caracteres não numéricos
+    const numbers = value.replace(/\D/g, '');
+    
+    // Limita a 11 dígitos
+    const limitedNumbers = numbers.slice(0, 11);
+    
+    // Aplica a formatação (33) 98845-6768
+    if (limitedNumbers.length <= 2) {
+      return limitedNumbers;
+    } else if (limitedNumbers.length <= 7) {
+      return `(${limitedNumbers.slice(0, 2)}) ${limitedNumbers.slice(2)}`;
+    } else {
+      return `(${limitedNumbers.slice(0, 2)}) ${limitedNumbers.slice(2, 7)}-${limitedNumbers.slice(7)}`;
+    }
+  };
+
+  // Função para validar telefone
+  const validatePhone = (phone: string) => {
+    const numbers = phone.replace(/\D/g, '');
+    if (numbers.length !== 11) {
+      setPhoneError('O telefone deve ter exatamente 11 dígitos');
+      return false;
+    }
+    setPhoneError('');
+    return true;
+  };
+
+  // Função para validar email
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setEmailError('Por favor, insira um email válido');
+      return false;
+    }
+    setEmailError('');
+    return true;
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatPhone(e.target.value);
+    setCustomerPhone(formatted);
+    
+    // Valida apenas se o campo não estiver vazio
+    if (formatted.length > 0) {
+      validatePhone(formatted);
+    } else {
+      setPhoneError('');
+    }
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const email = e.target.value;
+    setCustomerEmail(email);
+    
+    // Valida apenas se o campo não estiver vazio
+    if (email.length > 0) {
+      validateEmail(email);
+    } else {
+      setEmailError('');
+    }
+  };
+
   const handleContactSubmit = () => {
-    if (customerName.trim() && customerPhone.trim()) {
+    const isPhoneValid = validatePhone(customerPhone);
+    const isEmailValid = validateEmail(customerEmail);
+    
+    if (customerName.trim() && customerPhone.trim() && customerEmail.trim() && isPhoneValid && isEmailValid) {
       setShowContactForm(false);
       setMessages([{
         id: '1',
@@ -64,7 +134,8 @@ const ChatWidget = () => {
           message: inputMessage,
           threadId,
           customerName,
-          customerPhone
+          customerPhone: customerPhone.replace(/\D/g, ''), // Envia apenas números
+          customerEmail
         }
       });
 
@@ -131,7 +202,7 @@ const ChatWidget = () => {
 
       {/* Contact Form */}
       {showContactForm && (
-        <div className="p-4 border-b">
+        <div className="p-4 border-b overflow-y-auto">
           <p className="text-sm text-gray-600 mb-3">Para começar, por favor informe seus dados:</p>
           <div className="space-y-3">
             <div className="relative">
@@ -146,16 +217,28 @@ const ChatWidget = () => {
             <div className="relative">
               <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
               <Input
-                placeholder="Seu telefone"
+                placeholder="(33) 98845-6768"
                 value={customerPhone}
-                onChange={(e) => setCustomerPhone(e.target.value)}
-                className="pl-10"
+                onChange={handlePhoneChange}
+                className={`pl-10 ${phoneError ? 'border-red-500' : ''}`}
               />
+              {phoneError && <p className="text-red-500 text-xs mt-1">{phoneError}</p>}
+            </div>
+            <div className="relative">
+              <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <Input
+                type="email"
+                placeholder="seu@email.com"
+                value={customerEmail}
+                onChange={handleEmailChange}
+                className={`pl-10 ${emailError ? 'border-red-500' : ''}`}
+              />
+              {emailError && <p className="text-red-500 text-xs mt-1">{emailError}</p>}
             </div>
             <Button 
               onClick={handleContactSubmit}
               className="w-full bg-allpOrange hover:bg-allpOrange/90"
-              disabled={!customerName.trim() || !customerPhone.trim()}
+              disabled={!customerName.trim() || !customerPhone.trim() || !customerEmail.trim() || !!phoneError || !!emailError}
             >
               Iniciar Chat
             </Button>

@@ -12,6 +12,7 @@ export type Database = {
       conversation: {
         Row: {
           created_at: string
+          email: string | null
           id: number
           message: string | null
           name: string | null
@@ -19,6 +20,7 @@ export type Database = {
         }
         Insert: {
           created_at?: string
+          email?: string | null
           id?: number
           message?: string | null
           name?: string | null
@@ -26,6 +28,7 @@ export type Database = {
         }
         Update: {
           created_at?: string
+          email?: string | null
           id?: number
           message?: string | null
           name?: string | null

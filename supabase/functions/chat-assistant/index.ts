@@ -23,7 +23,7 @@ serve(async (req) => {
     }
 
     const supabase = createClient(supabaseUrl!, supabaseKey!);
-    const { message, threadId, customerName, customerPhone } = await req.json();
+    const { message, threadId, customerName, customerPhone, customerEmail } = await req.json();
 
     console.log('Received message:', message);
     console.log('Thread ID:', threadId);
@@ -107,12 +107,13 @@ serve(async (req) => {
     console.log('Assistant response:', responseContent);
 
     // Save conversation to database if we have customer info
-    if (customerName && customerPhone) {
+    if (customerName && customerPhone && customerEmail) {
       const { error } = await supabase
         .from('conversation')
         .insert({
           name: customerName,
           phone: customerPhone,
+          email: customerEmail,
           message: `User: ${message}\nAssistant: ${responseContent}`
         });
 
