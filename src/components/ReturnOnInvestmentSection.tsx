@@ -28,10 +28,10 @@ const ReturnOnInvestmentSection = () => {
         </h2>
         <p className="text-center text-allpPurple mb-12 text-lg bg-slate-50">Projeções de ROI com base no número de alunos e comparativo com o mercado.</p>
         
-        <div className="grid md:grid-cols-2 gap-8 items-start text-yellow-600">
+        <div className="grid md:grid-cols-2 gap-8 items-start text-zinc-950">
           <Card className="bg-allpBlack border-allpOrange shadow-xl">
             <CardHeader>
-              <CardTitle className="text-2xl font-poppins font-semibold text-center text-indigo-50">Projeção de Retorno Allp Fit</CardTitle>
+              <CardTitle className="font-poppins font-semibold text-center text-zinc-950 text-sm">Projeção de Retorno Allp Fit</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               {roiData.map((item, index) => <div key={index} className="flex justify-between items-center p-3 bg-gray-800 rounded-md">
