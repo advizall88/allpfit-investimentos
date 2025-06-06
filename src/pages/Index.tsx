@@ -12,6 +12,7 @@ import SupportProcessesSection from '@/components/SupportProcessesSection';
 import FaqSection from '@/components/FaqSection';
 import ContactFormSection from '@/components/ContactFormSection';
 import Footer from '@/components/Footer';
+import ChatWidget from '@/components/ChatWidget';
 
 const Index = () => {
   return (
@@ -31,6 +32,7 @@ const Index = () => {
         <ContactFormSection />
       </main>
       <Footer />
+      <ChatWidget />
     </div>
   );
 };
