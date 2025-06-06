@@ -19,6 +19,7 @@ const ChatWidget = () => {
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [threadId, setThreadId] = useState<string | null>(null);
+  const [conversationId, setConversationId] = useState<string | null>(null);
   const [showContactForm, setShowContactForm] = useState(true);
   const [customerName, setCustomerName] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
@@ -133,6 +134,7 @@ const ChatWidget = () => {
         body: {
           message: inputMessage,
           threadId,
+          conversationId,
           customerName,
           customerPhone: customerPhone.replace(/\D/g, ''), // Envia apenas números
           customerEmail
@@ -150,6 +152,7 @@ const ChatWidget = () => {
 
       setMessages(prev => [...prev, assistantMessage]);
       setThreadId(data.threadId);
+      setConversationId(data.conversationId);
 
     } catch (error) {
       console.error('Error sending message:', error);

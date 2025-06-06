@@ -9,30 +9,36 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      conversation: {
+      allpfit_conversation: {
         Row: {
+          conversation_id: string | null
           created_at: string
           email: string | null
           id: number
           message: string | null
           name: string | null
           phone: string | null
+          sender: string | null
         }
         Insert: {
+          conversation_id?: string | null
           created_at?: string
           email?: string | null
           id?: number
           message?: string | null
           name?: string | null
           phone?: string | null
+          sender?: string | null
         }
         Update: {
+          conversation_id?: string | null
           created_at?: string
           email?: string | null
           id?: number
           message?: string | null
           name?: string | null
           phone?: string | null
+          sender?: string | null
         }
         Relationships: []
       }

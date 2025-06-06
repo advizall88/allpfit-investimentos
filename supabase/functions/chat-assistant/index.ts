@@ -23,12 +23,14 @@ serve(async (req) => {
     }
 
     const supabase = createClient(supabaseUrl!, supabaseKey!);
-    const { message, threadId, customerName, customerPhone, customerEmail } = await req.json();
+    const { message, threadId, customerName, customerPhone, customerEmail, conversationId } = await req.json();
 
     console.log('Received message:', message);
     console.log('Thread ID:', threadId);
+    console.log('Conversation ID:', conversationId);
 
     let currentThreadId = threadId;
+    let currentConversationId = conversationId;
 
     // Create thread if not exists
     if (!currentThreadId) {
@@ -44,6 +46,30 @@ serve(async (req) => {
       const threadData = await threadResponse.json();
       currentThreadId = threadData.id;
       console.log('Created new thread:', currentThreadId);
+    }
+
+    // Generate conversation ID if not exists
+    if (!currentConversationId) {
+      currentConversationId = `conv_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+      console.log('Generated conversation ID:', currentConversationId);
+    }
+
+    // Save user message to database
+    const { error: userMessageError } = await supabase
+      .from('allpfit_conversation')
+      .insert({
+        name: customerName,
+        phone: customerPhone,
+        email: customerEmail,
+        message: message,
+        sender: 'user',
+        conversation_id: currentConversationId
+      });
+
+    if (userMessageError) {
+      console.error('Error saving user message:', userMessageError);
+    } else {
+      console.log('User message saved to database');
     }
 
     // Add message to thread
@@ -106,27 +132,28 @@ serve(async (req) => {
 
     console.log('Assistant response:', responseContent);
 
-    // Save conversation to database if we have customer info
-    if (customerName && customerPhone && customerEmail) {
-      const { error } = await supabase
-        .from('conversation')
-        .insert({
-          name: customerName,
-          phone: customerPhone,
-          email: customerEmail,
-          message: `User: ${message}\nAssistant: ${responseContent}`
-        });
+    // Save assistant response to database
+    const { error: assistantMessageError } = await supabase
+      .from('allpfit_conversation')
+      .insert({
+        name: customerName,
+        phone: customerPhone,
+        email: customerEmail,
+        message: responseContent,
+        sender: 'assistant',
+        conversation_id: currentConversationId
+      });
 
-      if (error) {
-        console.error('Error saving conversation:', error);
-      } else {
-        console.log('Conversation saved to database');
-      }
+    if (assistantMessageError) {
+      console.error('Error saving assistant message:', assistantMessageError);
+    } else {
+      console.log('Assistant message saved to database');
     }
 
     return new Response(JSON.stringify({
       response: responseContent,
-      threadId: currentThreadId
+      threadId: currentThreadId,
+      conversationId: currentConversationId
     }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
