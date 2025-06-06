@@ -96,7 +96,7 @@ export type Database = {
         }
         Relationships: []
       }
-      n8n_chat_histories_alpfit: {
+      allpfit_n8n_chat: {
         Row: {
           id: number
           message: Json
