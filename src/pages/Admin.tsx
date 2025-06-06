@@ -94,7 +94,7 @@ const Admin = () => {
   };
 
   const groupConversationsByCustomer = (conversations: any[]) => {
-    const grouped = conversations.reduce((acc: { [key: string]: GroupedConversation }, conv) => {
+    const grouped: { [key: string]: GroupedConversation } = conversations.reduce((acc, conv) => {
       const key = conv.conversation_id || 'sem_id';
       
       if (!acc[key]) {
@@ -117,9 +117,9 @@ const Admin = () => {
       }
       
       return acc;
-    }, {});
+    }, {} as { [key: string]: GroupedConversation });
 
-    const sortedGroups = Object.values(grouped).sort((a, b) => 
+    const sortedGroups: GroupedConversation[] = Object.values(grouped).sort((a, b) => 
       b.lastMessageDate.getTime() - a.lastMessageDate.getTime()
     );
 
