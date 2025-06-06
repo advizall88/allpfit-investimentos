@@ -44,7 +44,7 @@ const WhyInvestSection = () => {
       return () => clearInterval(interval);
     }
   }, [isMobile]);
-  return <section id="why-invest" className="py-16 md:py-24 text-white bg-purple-700 bg-[470e75]">
+  return <section id="why-invest" className="py-16 md:py-24 text-white bg-purple-700 bg-[320a52]">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl md:text-4xl font-poppins font-bold text-center mb-12 flex items-center justify-center flex-wrap">
           Por que investir na&nbsp;<AllpFitLogo className="inline-block h-8 md:h-10 w-auto mx-1 align-middle" alt="Allp Fit Logo" />?
