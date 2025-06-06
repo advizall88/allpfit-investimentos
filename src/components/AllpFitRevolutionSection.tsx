@@ -1,39 +1,28 @@
-
 import React from 'react';
 import { Baby, Waves, Sparkles, Briefcase, Pill, Smartphone } from 'lucide-react';
-
 const AllpFitRevolutionSection = () => {
-  const features = [
-    {
-      icon: <Baby className="h-8 w-8 text-white" />,
-      title: "ESPAÇO KIDS"
-    },
-    {
-      icon: <Waves className="h-8 w-8 text-white" />,
-      title: "SAUNA"
-    },
-    {
-      icon: <Sparkles className="h-8 w-8 text-white" />,
-      title: "SPA"
-    },
-    {
-      icon: <Briefcase className="h-8 w-8 text-white" />,
-      title: "SALA VIP PARA TRABALHO"
-    },
-    {
-      icon: <Pill className="h-8 w-8 text-white" />,
-      title: "PORÇÃO DE SUPLEMENTOS"
-    },
-    {
-      icon: <Smartphone className="h-8 w-8 text-white" />,
-      title: "APLICATIVO PARA TREINO"
-    }
-  ];
-
-  return (
-    <section className="py-16 md:py-24 bg-allpPurple text-white relative overflow-hidden">
+  const features = [{
+    icon: <Baby className="h-8 w-8 text-white" />,
+    title: "ESPAÇO KIDS"
+  }, {
+    icon: <Waves className="h-8 w-8 text-white" />,
+    title: "SAUNA"
+  }, {
+    icon: <Sparkles className="h-8 w-8 text-white" />,
+    title: "SPA"
+  }, {
+    icon: <Briefcase className="h-8 w-8 text-white" />,
+    title: "SALA VIP PARA TRABALHO"
+  }, {
+    icon: <Pill className="h-8 w-8 text-white" />,
+    title: "PORÇÃO DE SUPLEMENTOS"
+  }, {
+    icon: <Smartphone className="h-8 w-8 text-white" />,
+    title: "APLICATIVO PARA TREINO"
+  }];
+  return <section className="py-16 md:py-24 bg-allpPurple text-white relative overflow-hidden">
       {/* Background overlay pattern */}
-      <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+      
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
@@ -48,11 +37,7 @@ const AllpFitRevolutionSection = () => {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="bg-allpPurple border-2 border-allpOrange rounded-lg p-6 text-center hover:bg-opacity-80 transition-all duration-300 hover:scale-105"
-            >
+          {features.map((feature, index) => <div key={index} className="border-2 border-allpOrange rounded-lg p-6 text-center hover:bg-opacity-80 transition-all duration-300 hover:scale-105 bg-slate-950">
               <div className="flex justify-center mb-4">
                 <div className="p-3 rounded-full">
                   {feature.icon}
@@ -61,12 +46,9 @@ const AllpFitRevolutionSection = () => {
               <h3 className="text-allpOrange font-poppins font-bold text-sm md:text-base">
                 {feature.title}
               </h3>
-            </div>
-          ))}
+            </div>)}
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AllpFitRevolutionSection;
