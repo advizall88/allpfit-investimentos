@@ -31,6 +31,12 @@ interface N8NMessage {
   content: string;
 }
 
+interface GroupedN8NConversation {
+  phone: string;
+  messages: N8NMessage[];
+  lastMessageDate: Date;
+}
+
 const Admin = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -38,9 +44,12 @@ const Admin = () => {
   const [groupedConversations, setGroupedConversations] = useState<GroupedConversation[]>([]);
   const [formularios, setFormularios] = useState([]);
   const [n8nChats, setN8nChats] = useState<N8NMessage[]>([]);
+  const [groupedN8NConversations, setGroupedN8NConversations] = useState<GroupedN8NConversation[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
+  const [n8nSearchTerm, setN8nSearchTerm] = useState('');
   const [selectedCustomer, setSelectedCustomer] = useState<GroupedConversation | null>(null);
+  const [selectedN8NConversation, setSelectedN8NConversation] = useState<GroupedN8NConversation | null>(null);
 
   useEffect(() => {
     const adminData = localStorage.getItem('allpfit_admin');
@@ -149,6 +158,39 @@ const Admin = () => {
     });
 
     setN8nChats(processed);
+    groupN8NConversationsByPhone(processed);
+  };
+
+  const groupN8NConversationsByPhone = (messages: N8NMessage[]) => {
+    const grouped: { [key: string]: GroupedN8NConversation } = messages.reduce((acc, msg) => {
+      const phone = msg.session_id;
+      
+      if (!acc[phone]) {
+        acc[phone] = {
+          phone: phone,
+          messages: [],
+          lastMessageDate: new Date()
+        };
+      }
+      
+      acc[phone].messages.push(msg);
+      
+      return acc;
+    }, {} as { [key: string]: GroupedN8NConversation });
+
+    // Ordenar mensagens dentro de cada conversa por ID
+    Object.values(grouped).forEach(conversation => {
+      conversation.messages.sort((a, b) => a.id - b.id);
+      // Usar o ID mais alto como referência para ordenação
+      const lastMessage = conversation.messages[conversation.messages.length - 1];
+      conversation.lastMessageDate = new Date(lastMessage.id);
+    });
+
+    const sortedGroups: GroupedN8NConversation[] = Object.values(grouped).sort((a, b) => 
+      b.lastMessageDate.getTime() - a.lastMessageDate.getTime()
+    );
+
+    setGroupedN8NConversations(sortedGroups);
   };
 
   const handleLogout = () => {
@@ -175,6 +217,18 @@ const Admin = () => {
       group.customer.phone.toLowerCase().includes(term) ||
       group.messages.some(msg => 
         msg.message && msg.message.toLowerCase().includes(term)
+      )
+    );
+  });
+
+  const filteredN8NConversations = groupedN8NConversations.filter(group => {
+    if (!n8nSearchTerm) return true;
+    const term = n8nSearchTerm.toLowerCase();
+    
+    return (
+      group.phone.toLowerCase().includes(term) ||
+      group.messages.some(msg => 
+        msg.content && msg.content.toLowerCase().includes(term)
       )
     );
   });
@@ -363,15 +417,15 @@ const Admin = () => {
                             key={index}
                             className={`p-4 rounded-lg ${
                               message.sender === 'human' 
-                                ? 'bg-allpPurple text-white ml-8' 
-                                : 'bg-gray-700 text-white mr-8'
+                                ? 'bg-blue-600 text-white ml-8' 
+                                : 'bg-green-600 text-white mr-8'
                             }`}
                           >
                             <div className="flex justify-between items-start mb-2">
-                              <Badge variant={message.sender === 'human' ? 'default' : 'secondary'}>
-                                {message.sender === 'human' ? 'Cliente' : 'Sistema'}
+                              <Badge variant={message.sender === 'human' ? 'default' : 'secondary'} className="bg-white text-gray-800">
+                                {message.sender === 'human' ? 'Usuário' : 'Agente'}
                               </Badge>
-                              <span className="text-xs text-gray-300">
+                              <span className="text-xs text-gray-200">
                                 {formatDate(message.created_at)}
                               </span>
                             </div>
@@ -392,49 +446,111 @@ const Admin = () => {
           </TabsContent>
 
           <TabsContent value="robson">
-            <Card className="bg-gray-800 border-gray-700 shadow-2xl">
-              <CardHeader className="bg-gradient-to-r from-allpPurple to-purple-700 text-white">
-                <CardTitle className="flex items-center gap-2">
-                  <Bot className="w-6 h-6" />
-                  Histórico do Chat Robson - N8N ({n8nChats.length})
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="p-0">
-                <div className="overflow-x-auto">
-                  <Table>
-                    <TableHeader>
-                      <TableRow className="border-gray-700">
-                        <TableHead className="text-gray-300">ID</TableHead>
-                        <TableHead className="text-gray-300">Telefone</TableHead>
-                        <TableHead className="text-gray-300">Remetente</TableHead>
-                        <TableHead className="text-gray-300">Mensagem</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {n8nChats.map((chat) => (
-                        <TableRow key={chat.id} className="border-gray-700 hover:bg-gray-700 transition-colors">
-                          <TableCell className="text-white font-mono">{chat.id}</TableCell>
-                          <TableCell className="text-gray-300 font-mono">{chat.session_id}</TableCell>
-                          <TableCell>
-                            <Badge 
-                              variant={chat.sender === 'ai' ? 'default' : 'secondary'}
-                              className={chat.sender === 'ai' ? 'bg-blue-600 text-white' : 'bg-green-600 text-white'}
-                            >
-                              {chat.sender === 'ai' ? 'Robson (IA)' : 'Usuário'}
-                            </Badge>
-                          </TableCell>
-                          <TableCell className="text-gray-300 max-w-md">
-                            <div className="whitespace-pre-wrap text-sm bg-gray-900 p-3 rounded border-l-4 border-allpOrange">
-                              {chat.content}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {/* Lista de Conversas N8N */}
+              <div className="lg:col-span-1">
+                <Card className="bg-gray-800 border-gray-700 shadow-2xl">
+                  <CardHeader className="bg-gradient-to-r from-allpPurple to-purple-700 text-white">
+                    <CardTitle className="flex items-center gap-2">
+                      <Bot className="w-6 h-6" />
+                      Conversas N8N ({filteredN8NConversations.length})
+                    </CardTitle>
+                    <div className="relative">
+                      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                      <Input
+                        placeholder="Buscar por telefone ou mensagem..."
+                        value={n8nSearchTerm}
+                        onChange={(e) => setN8nSearchTerm(e.target.value)}
+                        className="pl-10 bg-gray-700 border-gray-600 text-white placeholder-gray-400"
+                      />
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-0 max-h-96 overflow-y-auto">
+                    {filteredN8NConversations.map((group, index) => (
+                      <div
+                        key={index}
+                        onClick={() => setSelectedN8NConversation(group)}
+                        className={`p-4 border-b border-gray-700 cursor-pointer transition-all duration-300 hover:bg-gray-700 ${
+                          selectedN8NConversation?.phone === group.phone 
+                            ? 'bg-allpPurple' 
+                            : ''
+                        }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 bg-allpOrange rounded-full flex items-center justify-center">
+                            <Phone className="w-5 h-5 text-white" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h3 className="text-white font-medium truncate">{group.phone}</h3>
+                            <div className="flex items-center gap-2 text-sm text-gray-400">
+                              <MessageSquare className="w-3 h-3" />
+                              <span>{group.messages.length} mensagens</span>
                             </div>
-                          </TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </div>
-              </CardContent>
-            </Card>
+                          </div>
+                          <Badge variant="outline" className="text-allpOrange border-allpOrange">
+                            {group.messages.length}
+                          </Badge>
+                        </div>
+                      </div>
+                    ))}
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Conversa N8N Selecionada */}
+              <div className="lg:col-span-2">
+                <Card className="bg-gray-800 border-gray-700 shadow-2xl">
+                  <CardHeader className="bg-gradient-to-r from-allpPurple to-purple-700 text-white">
+                    <CardTitle>
+                      {selectedN8NConversation ? (
+                        <div className="flex items-center gap-3">
+                          <Bot className="w-6 h-6" />
+                          <div>
+                            <div>Conversa: {selectedN8NConversation.phone}</div>
+                            <div className="text-sm text-purple-200 font-normal">
+                              {selectedN8NConversation.messages.length} mensagens
+                            </div>
+                          </div>
+                        </div>
+                      ) : (
+                        'Selecione uma conversa para visualizar as mensagens'
+                      )}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-6">
+                    {selectedN8NConversation ? (
+                      <div className="space-y-4 max-h-96 overflow-y-auto">
+                        {selectedN8NConversation.messages.map((message, index) => (
+                          <div
+                            key={index}
+                            className={`p-4 rounded-lg ${
+                              message.sender === 'human' 
+                                ? 'bg-blue-600 text-white ml-8' 
+                                : 'bg-green-600 text-white mr-8'
+                            }`}
+                          >
+                            <div className="flex justify-between items-start mb-2">
+                              <Badge variant={message.sender === 'human' ? 'default' : 'secondary'} className="bg-white text-gray-800">
+                                {message.sender === 'human' ? 'Usuário' : 'Robson (IA)'}
+                              </Badge>
+                              <span className="text-xs text-gray-200">
+                                ID: {message.id}
+                              </span>
+                            </div>
+                            <p className="text-sm">{message.content}</p>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="text-center text-gray-400 py-8">
+                        <Bot className="w-16 h-16 mx-auto mb-4 opacity-50" />
+                        <p>Selecione uma conversa da lista para visualizar as mensagens</p>
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
           </TabsContent>
         </Tabs>
       </main>
