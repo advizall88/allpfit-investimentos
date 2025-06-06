@@ -46,7 +46,7 @@ const ReturnOnInvestmentSection = () => {
               {traditionalInvestments.map((item, index) => (
                 <div key={index} className="flex justify-between items-center p-3 bg-gray-800 rounded-md">
                   <span className="font-poppins text-white">{item.name}</span>
-                  <span className="font-poppins font-bold text-gray-400 text-lg">{item.rate}</span>
+                  <span className="font-poppins font-bold text-lg" style={{color: '#e66d18'}}>{item.rate}</span>
                 </div>
               ))}
             </CardContent>
