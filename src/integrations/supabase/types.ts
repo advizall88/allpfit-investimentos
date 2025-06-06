@@ -72,6 +72,30 @@ export type Database = {
         }
         Relationships: []
       }
+      allpfit_login: {
+        Row: {
+          created_at: string
+          id: number
+          last_login: string | null
+          password: string
+          username: string
+        }
+        Insert: {
+          created_at?: string
+          id?: never
+          last_login?: string | null
+          password: string
+          username: string
+        }
+        Update: {
+          created_at?: string
+          id?: never
+          last_login?: string | null
+          password?: string
+          username?: string
+        }
+        Relationships: []
+      }
       n8n_chat_histories_alpfit: {
         Row: {
           id: number
