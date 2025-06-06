@@ -1,5 +1,7 @@
+
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+
 const roiData = [{
   students: "3.000 alunos",
   rate: "3,2% ao mês"
@@ -10,6 +12,7 @@ const roiData = [{
   students: "4.000 alunos",
   rate: "7,1% ao mês"
 }];
+
 const traditionalInvestments = [{
   name: "Poupança",
   rate: "0,68% ao mês"
@@ -20,6 +23,7 @@ const traditionalInvestments = [{
   name: "Bolsa (média)",
   rate: "1 a 1,5% ao mês"
 }];
+
 const ReturnOnInvestmentSection = () => {
   return <section id="roi" className="py-16 md:py-24 text-allpPurple bg-purple-800 bg-[470e75]">
       <div className="container mx-auto px-6">
@@ -48,7 +52,7 @@ const ReturnOnInvestmentSection = () => {
             <CardContent className="space-y-4">
               {traditionalInvestments.map((item, index) => <div key={index} className="flex justify-between items-center p-3 bg-gray-800 rounded-md">
                   <span className="font-poppins text-white">{item.name}</span>
-                  <span className="font-poppins font-bold text-gray-400 text-lg">{item.rate}</span>
+                  <span className="font-poppins font-bold text-lg" style={{color: '#e66d18'}}>{item.rate}</span>
                 </div>)}
             </CardContent>
           </Card>
@@ -56,4 +60,5 @@ const ReturnOnInvestmentSection = () => {
       </div>
     </section>;
 };
+
 export default ReturnOnInvestmentSection;
