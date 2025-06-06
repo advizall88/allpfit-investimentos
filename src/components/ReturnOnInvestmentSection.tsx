@@ -26,7 +26,7 @@ const ReturnOnInvestmentSection = () => {
         <h2 className="text-3xl md:text-4xl font-poppins font-bold text-center mb-4">
           Seu investimento rende mais aqui
         </h2>
-        <p className="text-center text-allpPurple mb-12 text-lg bg-slate-50">Projeções de ROI com base no número de alunos e comparativo com o mercado.</p>
+        <p className="text-center text-allpPurple mb-12 text-lg bg-orange-600">Projeções de ROI com base no número de alunos e comparativo com o mercado.</p>
         
         <div className="grid md:grid-cols-2 gap-8 items-start text-orange-600">
           <Card className="bg-allpBlack border-allpOrange shadow-xl">
