@@ -52,7 +52,7 @@ const WhyInvestSection = () => {
         
         {/* Layout para desktop */}
         <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => <div key={index} className="bg-allpPurple p-6 rounded-lg shadow-lg flex flex-col items-center text-center transform transition-transform hover:scale-105">
+          {features.map((feature, index) => <div key={index} className="p-6 rounded-lg shadow-lg flex flex-col items-center text-center transform transition-transform hover:scale-105 bg-slate-950">
               {feature.icon}
               <h3 className="text-xl font-poppins font-semibold mb-2 text-allpOrange">{feature.title}</h3>
               <p className="text-gray-300 text-sm">{feature.description}</p>
