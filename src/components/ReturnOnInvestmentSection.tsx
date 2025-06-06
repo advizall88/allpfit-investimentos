@@ -28,7 +28,7 @@ const ReturnOnInvestmentSection = () => {
         </h2>
         <p className="text-center text-allpPurple mb-12 text-lg bg-orange-600">Projeções de ROI com base no número de alunos e comparativo com o mercado.</p>
         
-        <div className="grid md:grid-cols-2 gap-8 items-start text-orange-600">
+        <div className="grid md:grid-cols-2 gap-8 items-start text-slate-50">
           <Card className="bg-allpBlack border-allpOrange shadow-xl">
             <CardHeader>
               <CardTitle className="font-poppins text-center text-zinc-950 text-sm font-extrabold">Projeção de Retorno Allp Fit</CardTitle>
