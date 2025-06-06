@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { useToast } from "@/hooks/use-toast";
 import { Send } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { supabase } from '@/integrations/supabase/client';
 
 const ContactFormSection = () => {
   const { toast } = useToast();
@@ -18,9 +19,77 @@ const ContactFormSection = () => {
     quotePotential: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState({
+    phone: '',
+    email: ''
+  });
+
+  const formatPhoneNumber = (value: string) => {
+    const numbers = value.replace(/\D/g, '');
+    if (numbers.length <= 11) {
+      return numbers.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+    }
+    return value;
+  };
+
+  const validatePhone = (phone: string) => {
+    const numbers = phone.replace(/\D/g, '');
+    if (numbers.length !== 11) {
+      return 'Telefone deve ter 11 dígitos (DDD + número)';
+    }
+    if (!numbers.startsWith('11') && !numbers.startsWith('12') && !numbers.startsWith('13') && 
+        !numbers.startsWith('14') && !numbers.startsWith('15') && !numbers.startsWith('16') && 
+        !numbers.startsWith('17') && !numbers.startsWith('18') && !numbers.startsWith('19') &&
+        !numbers.startsWith('21') && !numbers.startsWith('22') && !numbers.startsWith('24') &&
+        !numbers.startsWith('27') && !numbers.startsWith('28') && !numbers.startsWith('31') &&
+        !numbers.startsWith('32') && !numbers.startsWith('33') && !numbers.startsWith('34') &&
+        !numbers.startsWith('35') && !numbers.startsWith('37') && !numbers.startsWith('38') &&
+        !numbers.startsWith('41') && !numbers.startsWith('42') && !numbers.startsWith('43') &&
+        !numbers.startsWith('44') && !numbers.startsWith('45') && !numbers.startsWith('46') &&
+        !numbers.startsWith('47') && !numbers.startsWith('48') && !numbers.startsWith('49') &&
+        !numbers.startsWith('51') && !numbers.startsWith('53') && !numbers.startsWith('54') &&
+        !numbers.startsWith('55') && !numbers.startsWith('61') && !numbers.startsWith('62') &&
+        !numbers.startsWith('63') && !numbers.startsWith('64') && !numbers.startsWith('65') &&
+        !numbers.startsWith('66') && !numbers.startsWith('67') && !numbers.startsWith('68') &&
+        !numbers.startsWith('69') && !numbers.startsWith('71') && !numbers.startsWith('73') &&
+        !numbers.startsWith('74') && !numbers.startsWith('75') && !numbers.startsWith('77') &&
+        !numbers.startsWith('79') && !numbers.startsWith('81') && !numbers.startsWith('82') &&
+        !numbers.startsWith('83') && !numbers.startsWith('84') && !numbers.startsWith('85') &&
+        !numbers.startsWith('86') && !numbers.startsWith('87') && !numbers.startsWith('88') &&
+        !numbers.startsWith('89') && !numbers.startsWith('91') && !numbers.startsWith('92') &&
+        !numbers.startsWith('93') && !numbers.startsWith('94') && !numbers.startsWith('95') &&
+        !numbers.startsWith('96') && !numbers.startsWith('97') && !numbers.startsWith('98') &&
+        !numbers.startsWith('99')) {
+      return 'DDD inválido';
+    }
+    return '';
+  };
+
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return 'Email inválido';
+    }
+    return '';
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    
+    if (name === 'phone') {
+      const formattedPhone = formatPhoneNumber(value);
+      setFormData({ ...formData, [name]: formattedPhone });
+      
+      const phoneError = validatePhone(formattedPhone);
+      setErrors({ ...errors, phone: phoneError });
+    } else if (name === 'email') {
+      setFormData({ ...formData, [name]: value });
+      
+      const emailError = validateEmail(value);
+      setErrors({ ...errors, email: emailError });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   const handleSelectChange = (value: string) => {
@@ -29,27 +98,68 @@ const ContactFormSection = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    // Validar todos os campos
+    const phoneError = validatePhone(formData.phone);
+    const emailError = validateEmail(formData.email);
+    
+    if (phoneError || emailError || !formData.name || !formData.city || !formData.quotePotential) {
+      setErrors({ phone: phoneError, email: emailError });
+      toast({
+        title: "Erro no formulário",
+        description: "Por favor, corrija os erros e preencha todos os campos obrigatórios.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    console.log("Investment form data submitted:", formData);
-    
-    toast({
-      title: "Interesse Registrado com Sucesso!",
-      description: "Obrigado por seu interesse! Nossa equipe de investimentos entrará em contato em breve para apresentar os detalhes da oportunidade.",
-      variant: "default",
-    });
-    
-    setFormData({
-      name: '',
-      phone: '',
-      email: '',
-      city: '',
-      quotePotential: ''
-    });
-    setIsSubmitting(false);
+    try {
+      const { error } = await supabase
+        .from('allpfit_formulario')
+        .insert({
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          city: formData.city,
+          quote_potential: formData.quotePotential
+        });
+
+      if (error) {
+        console.error('Erro ao salvar no banco:', error);
+        toast({
+          title: "Erro ao enviar",
+          description: "Ocorreu um erro ao enviar seu formulário. Tente novamente.",
+          variant: "destructive",
+        });
+      } else {
+        console.log("Formulário de investimento salvo com sucesso");
+        toast({
+          title: "Interesse Registrado com Sucesso!",
+          description: "Obrigado por seu interesse! Nossa equipe de investimentos entrará em contato em breve para apresentar os detalhes da oportunidade.",
+          variant: "default",
+        });
+        
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          city: '',
+          quotePotential: ''
+        });
+        setErrors({ phone: '', email: '' });
+      }
+    } catch (error) {
+      console.error('Erro inesperado:', error);
+      toast({
+        title: "Erro inesperado",
+        description: "Ocorreu um erro inesperado. Tente novamente.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -94,9 +204,15 @@ const ContactFormSection = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   required 
-                  className="mt-1 bg-gray-800 border-gray-700 text-white rounded-md focus:ring-allpOrange focus:border-allpOrange placeholder-gray-400"
+                  maxLength={15}
+                  className={`mt-1 bg-gray-800 border-gray-700 text-white rounded-md focus:ring-allpOrange focus:border-allpOrange placeholder-gray-400 ${
+                    errors.phone ? 'border-red-500' : ''
+                  }`}
                   placeholder="(XX) XXXXX-XXXX"
                 />
+                {errors.phone && (
+                  <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+                )}
               </div>
 
               <div>
@@ -110,9 +226,14 @@ const ContactFormSection = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required 
-                  className="mt-1 bg-gray-800 border-gray-700 text-white rounded-md focus:ring-allpOrange focus:border-allpOrange placeholder-gray-400"
+                  className={`mt-1 bg-gray-800 border-gray-700 text-white rounded-md focus:ring-allpOrange focus:border-allpOrange placeholder-gray-400 ${
+                    errors.email ? 'border-red-500' : ''
+                  }`}
                   placeholder="seuemail@exemplo.com"
                 />
+                {errors.email && (
+                  <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                )}
               </div>
 
               <div>
@@ -135,7 +256,7 @@ const ContactFormSection = () => {
                 <Label className="block text-sm font-medium text-white font-poppins mb-2">
                   Potencial de Cotas *
                 </Label>
-                <Select onValueChange={handleSelectChange} value={formData.quotePotential}>
+                <Select onValueChange={handleSelectChange} value={formData.quotePotential} required>
                   <SelectTrigger className="bg-gray-800 border-gray-700 text-white focus:ring-allpOrange focus:border-allpOrange">
                     <SelectValue placeholder="Selecione o valor de investimento" />
                   </SelectTrigger>

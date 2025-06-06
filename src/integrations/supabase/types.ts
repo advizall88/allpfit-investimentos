@@ -42,6 +42,54 @@ export type Database = {
         }
         Relationships: []
       }
+      allpfit_formulario: {
+        Row: {
+          city: string
+          created_at: string
+          email: string
+          id: number
+          name: string
+          phone: string
+          quote_potential: string
+        }
+        Insert: {
+          city: string
+          created_at?: string
+          email: string
+          id?: never
+          name: string
+          phone: string
+          quote_potential: string
+        }
+        Update: {
+          city?: string
+          created_at?: string
+          email?: string
+          id?: never
+          name?: string
+          phone?: string
+          quote_potential?: string
+        }
+        Relationships: []
+      }
+      n8n_chat_histories_alpfit: {
+        Row: {
+          id: number
+          message: Json
+          session_id: string
+        }
+        Insert: {
+          id?: number
+          message: Json
+          session_id: string
+        }
+        Update: {
+          id?: number
+          message?: Json
+          session_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
