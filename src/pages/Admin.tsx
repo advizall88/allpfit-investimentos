@@ -103,7 +103,7 @@ const Admin = () => {
   };
 
   const groupConversationsByCustomer = (conversations: any[]) => {
-    const grouped: { [key: string]: GroupedConversation } = conversations.reduce((acc, conv) => {
+    const grouped: { [key: string]: GroupedConversation } = conversations.reduce((acc: { [key: string]: GroupedConversation }, conv: any) => {
       const key = conv.conversation_id || 'sem_id';
       
       if (!acc[key]) {
@@ -128,7 +128,7 @@ const Admin = () => {
       return acc;
     }, {} as { [key: string]: GroupedConversation });
 
-    const sortedGroups: GroupedConversation[] = Object.values(grouped).sort((a, b) => 
+    const sortedGroups: GroupedConversation[] = Object.values(grouped).sort((a: GroupedConversation, b: GroupedConversation) => 
       b.lastMessageDate.getTime() - a.lastMessageDate.getTime()
     );
 
@@ -416,14 +416,14 @@ const Admin = () => {
                           <div
                             key={index}
                             className={`p-4 rounded-lg ${
-                              message.sender === 'human' 
-                                ? 'bg-blue-600 text-white ml-8' 
-                                : 'bg-green-600 text-white mr-8'
+                              message.sender === 'user' 
+                                ? 'bg-gray-600 text-white ml-8' 
+                                : 'bg-gray-500 text-white mr-8'
                             }`}
                           >
                             <div className="flex justify-between items-start mb-2">
-                              <Badge variant={message.sender === 'human' ? 'default' : 'secondary'} className="bg-white text-gray-800">
-                                {message.sender === 'human' ? 'Usuário' : 'Agente'}
+                              <Badge variant={message.sender === 'user' ? 'default' : 'secondary'} className="bg-white text-gray-800">
+                                {message.sender === 'user' ? 'Usuário' : 'Agente'}
                               </Badge>
                               <span className="text-xs text-gray-200">
                                 {formatDate(message.created_at)}
@@ -525,8 +525,8 @@ const Admin = () => {
                             key={index}
                             className={`p-4 rounded-lg ${
                               message.sender === 'human' 
-                                ? 'bg-blue-600 text-white ml-8' 
-                                : 'bg-green-600 text-white mr-8'
+                                ? 'bg-gray-600 text-white ml-8' 
+                                : 'bg-gray-500 text-white mr-8'
                             }`}
                           >
                             <div className="flex justify-between items-start mb-2">
