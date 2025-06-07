@@ -1,9 +1,21 @@
 
+
 #root {
   /* max-width: 1280px; */ /* Removed for full-width layout */
   margin: 15px;
   /* padding: 2rem; */ /* Padding will be handled by sections */
   /* text-align: center; */ /* Text alignment will be handled by sections */
+  overflow-x: hidden;
+  width: calc(100vw - 30px);
+  max-width: calc(100vw - 30px);
+}
+
+@media (max-width: 768px) {
+  #root {
+    margin: 8px;
+    width: calc(100vw - 16px);
+    max-width: calc(100vw - 16px);
+  }
 }
 
 .logo {
@@ -41,3 +53,4 @@
 .read-the-docs {
   color: #888;
 }
+

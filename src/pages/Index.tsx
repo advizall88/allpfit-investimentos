@@ -16,9 +16,9 @@ import ChatWidget from '@/components/ChatWidget';
 
 const Index = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-allpBlack">
+    <div className="flex flex-col min-h-screen bg-allpBlack w-full overflow-x-hidden">
       <Header />
-      <main className="flex-grow">
+      <main className="flex-grow w-full overflow-x-hidden">
         <HeroSection />
         <WhyInvestSection />
         <OurStructureSection />
