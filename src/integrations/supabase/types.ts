@@ -72,6 +72,33 @@ export type Database = {
         }
         Relationships: []
       }
+      allpfit_lead: {
+        Row: {
+          created_at: string
+          email: string | null
+          id: number
+          name: string | null
+          numero: string | null
+          push_name: string | null
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          id?: number
+          name?: string | null
+          numero?: string | null
+          push_name?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          id?: number
+          name?: string | null
+          numero?: string | null
+          push_name?: string | null
+        }
+        Relationships: []
+      }
       allpfit_login: {
         Row: {
           created_at: string
@@ -110,6 +137,33 @@ export type Database = {
         Update: {
           id?: number
           message?: Json
+          session_id?: string
+        }
+        Relationships: []
+      }
+      gomes_n8n_chat: {
+        Row: {
+          created_at: string
+          email: string | null
+          id: number
+          message: string | null
+          name: string | null
+          session_id: string
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          id?: number
+          message?: string | null
+          name?: string | null
+          session_id: string
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          id?: number
+          message?: string | null
+          name?: string | null
           session_id?: string
         }
         Relationships: []
