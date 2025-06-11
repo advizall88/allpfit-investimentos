@@ -21,8 +21,7 @@ const HeroSection = () => {
         
         {/* Título principal com animação de entrada */}
         <div className="animate-fade-in">
-          <h1 className="font-poppins font-black mb-8 leading-tight max-w-4xl text-3xl animate-slide-up lg:text-4xl md:text-2xl">Invista a partir de R$ 50 mil e torne-se sócio da rede de academias que mais cresce no Brasil 
- com gestão profissional e lucros recorrentes, sem precisar operar.</h1>
+          <h1 className="font-poppins mb-8 leading-tight max-w-4xl text-3xl animate-slide-up lg:text-4xl md:text-2xl font-semibold">Invista a partir de R$ 50 mil e torne-se sócio da rede de academias que mais cresce no Brasil ! </h1>
         </div>
         
         {/* Player de vídeo customizado com animação */}
