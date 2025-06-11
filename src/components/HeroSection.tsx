@@ -1,21 +1,14 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import CustomVideoPlayer from './CustomVideoPlayer';
-
 const HeroSection = () => {
   const handleWhatsAppRedirect = () => {
     window.open('https://wa.me/5567998184460?text=Ol%C3%A1!%20Acabei%20de%20vir%20da%20landing%20page%20e%20quero%20saber%20mais%20sobre%20o%20lan%C3%A7amento!', '_blank');
   };
-
-  return (
-    <section 
-      style={{
-        backgroundImage: 'url(/lovable-uploads/1b95c159-aec2-42ae-8270-00b256ef4ae0.png)'
-      }} 
-      className="bg-cover bg-center text-white py-14 md:py-22 relative min-h-screen overflow-hidden"
-    >
+  return <section style={{
+    backgroundImage: 'url(/lovable-uploads/1b95c159-aec2-42ae-8270-00b256ef4ae0.png)'
+  }} className="bg-cover bg-center text-white py-14 md:py-22 relative min-h-screen overflow-hidden">
       {/* Overlay com gradiente mais suave */}
       <div className="absolute inset-0 bg-gradient-to-b from-allpBlack/70 via-allpBlack/50 to-allpBlack/70" />
       
@@ -28,7 +21,7 @@ const HeroSection = () => {
         
         {/* Título principal com animação de entrada */}
         <div className="animate-fade-in mb-6">
-          <h1 className="font-poppins leading-tight max-w-3xl text-2xl lg:text-3xl md:text-xl font-semibold animate-slide-up animate-glow">
+          <h1 className="font-poppins leading-tight max-w-3xl text-2xl lg:text-3xl font-semibold animate-slide-up animate-glow md:text-3xl">
             Invista a partir de R$ 50 mil e torne-se sócio da rede de academias que mais cresce no Brasil!
           </h1>
           
@@ -44,20 +37,12 @@ const HeroSection = () => {
         
         {/* Player de vídeo customizado com animação */}
         <div className="mb-8 w-full max-w-3xl animate-scale-in-delay">
-          <CustomVideoPlayer 
-            videoId="d9hL2TKv9aA" 
-            thumbnailUrl="/lovable-uploads/1b95c159-aec2-42ae-8270-00b256ef4ae0.png" 
-            title="Descubra a Oportunidade de Investimento AllpFit" 
-          />
+          <CustomVideoPlayer videoId="d9hL2TKv9aA" thumbnailUrl="/lovable-uploads/1b95c159-aec2-42ae-8270-00b256ef4ae0.png" title="Descubra a Oportunidade de Investimento AllpFit" />
         </div>
 
         {/* Botão de ação com animação */}
         <div className="animate-fade-in-delay-cta">
-          <Button 
-            size="lg" 
-            className="bg-gradient-to-r from-allpOrange via-orange-600 to-allpOrange hover:from-orange-700 hover:via-orange-800 hover:to-orange-700 text-white font-poppins font-bold text-xl px-12 py-8 rounded-2xl shadow-2xl shadow-allpOrange/30 transition-all duration-500 transform hover:scale-110 hover:shadow-allpOrange/50 active:scale-95 group relative overflow-hidden" 
-            onClick={handleWhatsAppRedirect}
-          >
+          <Button size="lg" className="bg-gradient-to-r from-allpOrange via-orange-600 to-allpOrange hover:from-orange-700 hover:via-orange-800 hover:to-orange-700 text-white font-poppins font-bold text-xl px-12 py-8 rounded-2xl shadow-2xl shadow-allpOrange/30 transition-all duration-500 transform hover:scale-110 hover:shadow-allpOrange/50 active:scale-95 group relative overflow-hidden" onClick={handleWhatsAppRedirect}>
             {/* Efeito de brilho animado */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
             
@@ -76,8 +61,6 @@ const HeroSection = () => {
           </p>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
