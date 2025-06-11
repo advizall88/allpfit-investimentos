@@ -29,14 +29,7 @@ const HeroSection = () => {
         {/* Título principal com animação de entrada */}
         <div className="animate-fade-in">
           <h1 className="md:text-6xl lg:text-7xl font-poppins font-black mb-8 leading-tight max-w-4xl text-3xl animate-slide-up">
-            <span className="inline-block animate-fade-in-delay-1">Transforme</span>{' '}
-            <span className="inline-block animate-fade-in-delay-2">seu</span>{' '}
-            <span className="inline-block animate-fade-in-delay-3">investimento</span>{' '}
-            <span className="inline-block animate-fade-in-delay-4">em</span>{' '}
-            <span className="inline-block animate-fade-in-delay-5">renda</span>{' '}
-            <span className="inline-block animate-fade-in-delay-6">passiva</span>{' '}
-            <span className="inline-block animate-fade-in-delay-7">e</span>{' '}
-            <span className="inline-block text-allpOrange animate-fade-in-delay-8 animate-glow">escalável</span>
+            Invista a partir de R$ 50 mil e torne-se sócio da rede de academias que mais cresce no Brasil — com gestão profissional e lucros recorrentes, sem precisar operar.
           </h1>
         </div>
         
