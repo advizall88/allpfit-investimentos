@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import CustomVideoPlayer from './CustomVideoPlayer';
 
 const HeroSection = () => {
   const handleWhatsAppRedirect = () => {
@@ -9,35 +10,69 @@ const HeroSection = () => {
   };
 
   return (
-    <section style={{
-      backgroundImage: 'url(/lovable-uploads/1b95c159-aec2-42ae-8270-00b256ef4ae0.png)'
-    }} className="bg-cover bg-center text-white py-14 md:py-22 relative">
-      {/* Overlay para melhorar a legibilidade do texto */}
-      <div className="absolute inset-0 bg-allpBlack bg-opacity-60"></div>
+    <section 
+      style={{
+        backgroundImage: 'url(/lovable-uploads/1b95c159-aec2-42ae-8270-00b256ef4ae0.png)'
+      }} 
+      className="bg-cover bg-center text-white py-14 md:py-22 relative min-h-screen overflow-hidden"
+    >
+      {/* Overlay com gradiente mais suave */}
+      <div className="absolute inset-0 bg-gradient-to-b from-allpBlack/70 via-allpBlack/50 to-allpBlack/70" />
+      
+      {/* Efeitos de luz ambiente */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-allpOrange/10 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-allpPurple/10 rounded-full blur-3xl animate-pulse delay-1000" />
       
       {/* Conteúdo da Hero Section */}
-      <div className="container mx-auto px-6 text-center relative z-10 flex flex-col items-center justify-center min-h-[calc(70vh-112px)] md:min-h-[calc(70vh-179px)]">
-        <h1 className="md:text-6xl lg:text-7xl font-poppins font-black mb-6 leading-tight max-w-4xl py-0 my-[15px] px-0 mx-0 text-3xl">
-          Transforme seu investimento em renda passiva e <span className="text-allpOrange">escalável</span>
-        </h1>
+      <div className="container mx-auto px-6 text-center relative z-10 flex flex-col items-center justify-center min-h-[calc(100vh-112px)] md:min-h-[calc(100vh-179px)] pt-24">
         
-        {/* Vídeo do YouTube com autoplay */}
-        <div className="mb-8 w-full max-w-2xl aspect-video rounded-lg overflow-hidden shadow-2xl border-2 border-allpOrange">
-          <iframe
-            width="100%"
-            height="100%"
-            src="https://www.youtube.com/embed/d9hL2TKv9aA?autoplay=1&mute=1&controls=1&rel=0"
-            title="Vídeo Apresentação Allp Fit"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            className="bg-gray-800"
-          ></iframe>
+        {/* Título principal com animação de entrada */}
+        <div className="animate-fade-in">
+          <h1 className="md:text-6xl lg:text-7xl font-poppins font-black mb-8 leading-tight max-w-4xl text-3xl animate-slide-up">
+            <span className="inline-block animate-fade-in-delay-1">Transforme</span>{' '}
+            <span className="inline-block animate-fade-in-delay-2">seu</span>{' '}
+            <span className="inline-block animate-fade-in-delay-3">investimento</span>{' '}
+            <span className="inline-block animate-fade-in-delay-4">em</span>{' '}
+            <span className="inline-block animate-fade-in-delay-5">renda</span>{' '}
+            <span className="inline-block animate-fade-in-delay-6">passiva</span>{' '}
+            <span className="inline-block animate-fade-in-delay-7">e</span>{' '}
+            <span className="inline-block text-allpOrange animate-fade-in-delay-8 animate-glow">escalável</span>
+          </h1>
+        </div>
+        
+        {/* Player de vídeo customizado com animação */}
+        <div className="mb-8 w-full max-w-3xl animate-scale-in-delay">
+          <CustomVideoPlayer
+            videoId="d9hL2TKv9aA"
+            thumbnailUrl="/lovable-uploads/1b95c159-aec2-42ae-8270-00b256ef4ae0.png"
+            title="Descubra a Oportunidade de Investimento AllpFit"
+          />
         </div>
 
-        <Button size="lg" className="bg-allpOrange hover:bg-orange-700 text-white font-poppins font-semibold text-lg px-10 py-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 animate-pulse-orange" onClick={handleWhatsAppRedirect}>
-          Quero ser investidor <ArrowRight className="ml-2 h-5 w-5" />
-        </Button>
+        {/* Botão de ação com animação */}
+        <div className="animate-fade-in-delay-cta">
+          <Button 
+            size="lg" 
+            className="bg-gradient-to-r from-allpOrange via-orange-600 to-allpOrange hover:from-orange-700 hover:via-orange-800 hover:to-orange-700 text-white font-poppins font-bold text-xl px-12 py-8 rounded-2xl shadow-2xl shadow-allpOrange/30 transition-all duration-500 transform hover:scale-110 hover:shadow-allpOrange/50 active:scale-95 group relative overflow-hidden" 
+            onClick={handleWhatsAppRedirect}
+          >
+            {/* Efeito de brilho animado */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+            
+            <span className="relative z-10 flex items-center">
+              Quero ser investidor 
+              <ArrowRight className="ml-3 h-6 w-6 transition-transform duration-300 group-hover:translate-x-2" />
+            </span>
+          </Button>
+        </div>
+
+        {/* Indicador de confiança */}
+        <div className="mt-8 animate-fade-in-delay-trust">
+          <p className="text-gray-300 font-poppins text-lg">
+            + de <span className="text-allpOrange font-bold">60 mil alunos</span> e{' '}
+            <span className="text-allpOrange font-bold">25 unidades</span> de sucesso
+          </p>
+        </div>
       </div>
     </section>
   );
