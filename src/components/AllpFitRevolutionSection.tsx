@@ -15,8 +15,12 @@ const AllpFitRevolutionSection = () => {
 
     const startAutoPlay = () => {
       autoPlayInterval = setInterval(() => {
-        api.scrollNext();
-      }, 4000); // 4 segundos para dar tempo de ler
+        if (api.canScrollNext()) {
+          api.scrollNext();
+        } else {
+          api.scrollTo(0);
+        }
+      }, 5000); // 5 segundos
     };
 
     const stopAutoPlay = () => {
@@ -25,19 +29,19 @@ const AllpFitRevolutionSection = () => {
       }
     };
 
-    // Inicia o autoplay após um delay inicial
+    // Inicia o autoplay após 3 segundos
     const initialDelay = setTimeout(() => {
       startAutoPlay();
-    }, 2000);
+    }, 3000);
 
     // Para o autoplay quando o usuário interage
     const handleSelect = () => {
       stopAutoPlay();
       
-      // Reinicia o autoplay após 6 segundos de inatividade
+      // Reinicia o autoplay após 8 segundos de inatividade
       setTimeout(() => {
         startAutoPlay();
-      }, 6000);
+      }, 8000);
     };
 
     api.on("select", handleSelect);
@@ -54,32 +58,38 @@ const AllpFitRevolutionSection = () => {
     {
       icon: <Baby className="h-8 w-8 text-white" />,
       title: "ESPAÇO KIDS",
-      gradient: "from-allpOrange to-orange-500"
+      gradient: "from-allpOrange to-orange-500",
+      image: "/lovable-uploads/b561ce33-4af9-49d6-8240-1418f15c7201.png"
     },
     {
       icon: <Waves className="h-8 w-8 text-white" />,
       title: "SAUNA",
-      gradient: "from-allpPurple to-purple-600"
+      gradient: "from-allpPurple to-purple-600",
+      image: "/lovable-uploads/312efa3a-d39c-4144-acdf-9c60375d444c.png"
     },
     {
       icon: <Sparkles className="h-8 w-8 text-white" />,
       title: "SPA",
-      gradient: "from-allpOrange via-orange-500 to-allpPurple"
+      gradient: "from-allpOrange via-orange-500 to-allpPurple",
+      image: "/lovable-uploads/405eea49-a442-4204-a803-32c1563e7fa9.png"
     },
     {
       icon: <Briefcase className="h-8 w-8 text-white" />,
       title: "SALA VIP PARA TRABALHO",
-      gradient: "from-allpPurple to-purple-700"
+      gradient: "from-allpPurple to-purple-700",
+      image: "/lovable-uploads/190bf71c-c2fd-427d-a51b-52d34257d3a8.png"
     },
     {
       icon: <Pill className="h-8 w-8 text-white" />,
       title: "PORÇÃO DE SUPLEMENTOS",
-      gradient: "from-allpOrange to-red-500"
+      gradient: "from-allpOrange to-red-500",
+      image: "/lovable-uploads/78a9d90a-845e-4aa6-8381-40a49d2fae3d.png"
     },
     {
       icon: <Smartphone className="h-8 w-8 text-white" />,
       title: "APLICATIVO PARA TREINO",
-      gradient: "from-allpPurple via-purple-600 to-allpOrange"
+      gradient: "from-allpPurple via-purple-600 to-allpOrange",
+      image: "/lovable-uploads/cbeddab1-80a3-4323-b7cf-7bbd88cadd01.png"
     }
   ];
 
@@ -117,15 +127,25 @@ const AllpFitRevolutionSection = () => {
             <CarouselContent className="-ml-2 md:-ml-4">
               {features.map((feature, index) => (
                 <CarouselItem key={index} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
-                  <div className="bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-lg border border-white/20 rounded-2xl p-8 text-center hover:bg-gradient-to-br hover:from-white/20 hover:via-white/10 hover:to-white/5 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-allpOrange/20 group min-h-[280px] flex flex-col justify-center relative overflow-hidden">
+                  <div className="bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-lg border border-white/20 rounded-2xl overflow-hidden text-center hover:bg-gradient-to-br hover:from-white/20 hover:via-white/10 hover:to-white/5 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-allpOrange/20 group min-h-[350px] relative">
                     
+                    {/* Background image */}
+                    <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500">
+                      <img 
+                        src={feature.image} 
+                        alt={feature.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-allpBlack/80 via-allpBlack/20 to-transparent"></div>
+                    </div>
+
                     {/* Animated gradient background */}
                     <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-5 group-hover:opacity-10 transition-opacity duration-500`}></div>
                     
                     {/* Glowing border effect */}
                     <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-allpOrange/20 via-transparent to-allpPurple/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
                     
-                    <div className="relative z-10">
+                    <div className="relative z-10 p-8 flex flex-col justify-center h-full">
                       <div className="flex justify-center mb-6">
                         <div className={`p-4 bg-gradient-to-br ${feature.gradient} rounded-full group-hover:scale-110 transition-all duration-500 shadow-lg group-hover:shadow-xl`}>
                           {feature.icon}
@@ -143,8 +163,8 @@ const AllpFitRevolutionSection = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex -left-12 border-allpOrange bg-gradient-to-r from-allpOrange/10 to-allpPurple/10 hover:from-allpOrange/20 hover:to-allpPurple/20 text-allpOrange backdrop-blur-sm" />
-            <CarouselNext className="hidden md:flex -right-12 border-allpOrange bg-gradient-to-r from-allpPurple/10 to-allpOrange/10 hover:from-allpPurple/20 hover:to-allpOrange/20 text-allpOrange backdrop-blur-sm" />
+            <CarouselPrevious className="hidden md:flex -left-12 border-allpOrange bg-gradient-to-r from-allpOrange/20 to-allpPurple/20 hover:from-allpOrange/30 hover:to-allpPurple/30 text-white backdrop-blur-sm" />
+            <CarouselNext className="hidden md:flex -right-12 border-allpOrange bg-gradient-to-r from-allpPurple/20 to-allpOrange/20 hover:from-allpPurple/30 hover:to-allpOrange/30 text-white backdrop-blur-sm" />
           </Carousel>
         </div>
 
@@ -154,6 +174,7 @@ const AllpFitRevolutionSection = () => {
             <div
               key={index}
               className="w-2 h-2 rounded-full bg-white/30 hover:bg-allpOrange/60 transition-colors duration-300 cursor-pointer"
+              onClick={() => api?.scrollTo(index * 3)}
             ></div>
           ))}
         </div>
