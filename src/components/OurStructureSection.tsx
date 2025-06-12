@@ -81,7 +81,7 @@ const OurStructureSection = () => {
                     </DialogTrigger>
                     <DialogContent className="bg-allpBlack border-allpPurple max-w-5xl p-0">
                       <DialogHeader className="p-4 absolute top-0 right-0 z-10">
-                        {/* DialogTitle can be empty or customized if needed */}
+                        <DialogTitle className="sr-only">Imagem da estrutura</DialogTitle>
                       </DialogHeader>
                       <div className="p-2 md:p-4">
                         <img 
@@ -90,7 +90,7 @@ const OurStructureSection = () => {
                           className="w-full h-auto rounded-md object-contain max-h-[85vh]" 
                         />
                       </div>
-                        <p className="text-center text-sm text-gray-400 pb-4">{image.alt}</p>
+                      <p className="text-center text-sm text-gray-400 pb-4">{image.alt}</p>
                     </DialogContent>
                   </Dialog>
                 </div>
