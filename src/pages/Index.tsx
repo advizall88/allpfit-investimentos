@@ -1,3 +1,4 @@
+
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import OurStructureSection from '@/components/OurStructureSection';
@@ -12,7 +13,6 @@ import FaqSection from '@/components/FaqSection';
 import ContactFormSection from '@/components/ContactFormSection';
 import Footer from '@/components/Footer';
 import ChatWidget from '@/components/ChatWidget';
-import CustomCursor from '@/components/CustomCursor';
 
 const Index = () => {
   return (
@@ -33,7 +33,6 @@ const Index = () => {
       </main>
       <Footer />
       <ChatWidget />
-      <CustomCursor />
     </div>
   );
 };

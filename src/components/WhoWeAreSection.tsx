@@ -1,124 +1,104 @@
 
 import React from 'react';
-import ScrollReveal from './ScrollReveal';
 
 const WhoWeAreSection = () => {
   return (
     <section 
       id="who-we-are" 
-      className="py-16 md:py-24 text-white bg-gradient-to-br from-allpBlack via-allpPurple/10 to-allpBlack relative overflow-hidden"
+      className="py-16 md:py-24 text-white bg-allpBlack relative overflow-hidden"
     >
-      {/* Background effects */}
+      {/* Efeitos de fundo aprimorados */}
       <div className="absolute inset-0">
-        <div className="absolute top-10 right-10 w-64 h-64 bg-allpOrange/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-allpPurple/15 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-allpPurple/10 via-transparent to-allpOrange/5" />
+        <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-allpPurple/20 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }} />
+        <div className="absolute bottom-1/3 -right-1/4 w-80 h-80 bg-allpOrange/15 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '4s', animationDuration: '10s' }} />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-          
-          {/* Image Column with Glassmorphism */}
-          <ScrollReveal delay={200} direction="left" className="w-full lg:w-1/2">
+        <div className="flex flex-col lg:flex-row items-stretch gap-8 md:gap-12">
+          {/* Coluna da Imagem */}
+          <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
             <div className="relative group">
-              {/* Glassmorphism frame */}
-              <div 
-                className="relative bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-xl border border-white/20 rounded-3xl p-6 shadow-2xl shadow-allpPurple/20 hover:shadow-allpOrange/30 transition-all duration-500"
-                style={{ backdropFilter: 'blur(20px) saturate(180%)' }}
-              >
-                <div className="relative overflow-hidden rounded-2xl">
+              {/* Container da imagem com bordas estilizadas */}
+              <div className="relative bg-gradient-to-br from-allpPurple/30 to-allpOrange/20 p-1 rounded-2xl shadow-2xl">
+                <div className="bg-allpBlack rounded-xl overflow-hidden">
                   <img 
                     src="/lovable-uploads/2a9ae914-9e92-46b4-b9fe-1c01a35a5b2a.png" 
                     alt="Vinicius Rezende - Diretor de Expansão Allp Fit" 
-                    className="w-full h-[400px] lg:h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-[500px] object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-allpBlack/30 via-transparent to-transparent" />
+                  
+                  {/* Overlay com gradiente */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-allpBlack/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 
-                {/* Name badge with glassmorphism */}
-                <div 
-                  className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-allpOrange/80 to-orange-600/80 backdrop-blur-xl border border-white/20 rounded-2xl px-6 py-3 shadow-xl"
-                  style={{ backdropFilter: 'blur(15px)' }}
-                >
-                  <h3 className="text-xl lg:text-2xl font-poppins font-bold text-white text-center whitespace-nowrap">
-                    Vínicius Rezende
-                  </h3>
-                  <p className="text-sm text-white/90 text-center">Diretor de Expansão</p>
-                </div>
+                {/* Efeito de brilho animado */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-allpOrange via-allpPurple to-allpOrange rounded-2xl blur opacity-20 group-hover:opacity-40 transition-opacity duration-300 animate-pulse" />
               </div>
               
-              {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-allpOrange/20 to-allpPurple/20 rounded-3xl blur-2xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              {/* Nome estilizado */}
+              <div className="mt-6 text-center">
+                <h3 className="text-2xl md:text-3xl font-poppins font-bold bg-gradient-to-r from-allpOrange to-orange-400 bg-clip-text text-transparent">
+                  Vínicius Rezende
+                </h3>
+                <p className="text-gray-300 font-poppins mt-2">Diretor de Expansão</p>
+              </div>
             </div>
-          </ScrollReveal>
+          </div>
           
-          {/* Text Column with Enhanced Glassmorphism */}
-          <ScrollReveal delay={400} direction="right" className="w-full lg:w-1/2">
+          {/* Coluna do Texto */}
+          <div className="w-full lg:w-1/2 flex items-center">
             <div className="relative">
-              <div 
-                className="bg-gradient-to-br from-allpPurple/30 via-allpPurple/20 to-allpOrange/10 backdrop-blur-2xl border border-white/20 rounded-3xl p-8 lg:p-10 shadow-2xl shadow-allpPurple/30 hover:shadow-allpOrange/20 transition-all duration-500 group"
-                style={{ backdropFilter: 'blur(25px) saturate(200%)' }}
-              >
-                {/* Quote marks */}
-                <div className="absolute -top-6 -left-6">
-                  <div className="w-12 h-12 bg-gradient-to-br from-allpOrange to-orange-600 rounded-full flex items-center justify-center shadow-xl">
-                    <span className="text-white text-2xl font-bold">"</span>
+              {/* Caixa de texto principal */}
+              <div className="bg-gradient-to-br from-allpPurple/40 to-allpPurple/20 backdrop-blur-sm border border-allpOrange/30 p-8 md:p-10 rounded-2xl shadow-2xl h-[500px] flex flex-col justify-center relative overflow-hidden">
+                {/* Efeito de brilho de fundo */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-allpOrange/10 rounded-full blur-3xl" />
+                <div className="absolute bottom-0 left-0 w-40 h-40 bg-allpPurple/15 rounded-full blur-3xl" />
+                
+                <div className="relative z-10">
+                  <p className="text-lg md:text-xl text-gray-100 leading-relaxed mb-6 font-light italic relative">
+                    <span className="text-allpOrange text-4xl absolute -top-2 -left-4">"</span>
+                    Sou empresário e Diretor de Expansão da Allp Fit, uma das redes fitness que mais cresce no país.
+                    <span className="text-allpOrange text-4xl absolute -bottom-4 -right-2">"</span>
+                  </p>
+                  
+                  <p className="text-lg md:text-xl text-gray-100 leading-relaxed mb-6">
+                    Após anos liderando projetos de sucesso no setor, decidi abrir uma oportunidade única: a venda de cotas da nossa nova unidade — um investimento <span className="text-allpOrange font-semibold bg-allpOrange/10 px-2 py-1 rounded">acessível, lucrativo e com gestão profissional</span>.
+                  </p>
+                  
+                  <p className="text-lg md:text-xl text-gray-100 leading-relaxed mb-6">
+                    Não é só uma academia. É um <span className="text-allpOrange font-semibold bg-gradient-to-r from-allpOrange/20 to-transparent px-2 py-1 rounded">negócio inteligente</span>, em um mercado sólido e em expansão.
+                  </p>
+                  
+                  <p className="text-lg md:text-xl text-gray-100 leading-relaxed mb-6">
+                    Se você busca investir com propósito e retorno real, <span className="text-allpOrange font-semibold animate-pulse">essa é a hora</span>.
+                  </p>
+                  
+                  <div className="text-center mt-8">
+                    <p className="text-xl md:text-2xl font-poppins font-bold bg-gradient-to-r from-allpOrange via-orange-400 to-allpOrange bg-clip-text text-transparent animate-glow">
+                      Vamos crescer juntos.
+                    </p>
+                    
+                    {/* Linha decorativa */}
+                    <div className="flex items-center justify-center mt-4">
+                      <div className="h-0.5 w-16 bg-gradient-to-r from-transparent to-allpOrange"></div>
+                      <div className="h-2 w-2 bg-allpOrange rounded-full mx-3 animate-pulse"></div>
+                      <div className="h-0.5 w-16 bg-gradient-to-l from-transparent to-allpOrange"></div>
+                    </div>
                   </div>
                 </div>
-
-                <div className="space-y-6">
-                  <ScrollReveal delay={600} direction="up">
-                    <p className="text-lg lg:text-xl text-gray-200 italic font-light leading-relaxed group-hover:text-white transition-colors duration-300">
-                      "Sou empresário e Diretor de Expansão da Allp Fit, uma das redes fitness que mais cresce no país."
-                    </p>
-                  </ScrollReveal>
-                  
-                  <ScrollReveal delay={800} direction="up">
-                    <p className="text-lg lg:text-xl text-gray-200 leading-relaxed group-hover:text-white transition-colors duration-300">
-                      Após anos liderando projetos de sucesso no setor, decidi abrir uma oportunidade única: a venda de cotas da nossa nova unidade — um investimento{' '}
-                      <strong className="bg-gradient-to-r from-allpOrange to-orange-300 bg-clip-text text-transparent font-bold">
-                        acessível, lucrativo e com gestão profissional
-                      </strong>.
-                    </p>
-                  </ScrollReveal>
-                  
-                  <ScrollReveal delay={1000} direction="up">
-                    <p className="text-lg lg:text-xl text-gray-200 leading-relaxed group-hover:text-white transition-colors duration-300">
-                      Não é só uma academia. É um{' '}
-                      <strong className="bg-gradient-to-r from-allpOrange to-orange-300 bg-clip-text text-transparent font-bold">
-                        negócio inteligente
-                      </strong>, em um mercado sólido e em expansão.
-                    </p>
-                  </ScrollReveal>
-                  
-                  <ScrollReveal delay={1200} direction="up">
-                    <p className="text-lg lg:text-xl text-gray-200 leading-relaxed group-hover:text-white transition-colors duration-300">
-                      Se você busca investir com propósito e retorno real,{' '}
-                      <strong className="bg-gradient-to-r from-allpOrange to-orange-300 bg-clip-text text-transparent font-bold">
-                        essa é a hora
-                      </strong>.
-                    </p>
-                  </ScrollReveal>
-                  
-                  <ScrollReveal delay={1400} direction="scale">
-                    <div className="text-center pt-4">
-                      <p className="text-xl lg:text-2xl font-poppins font-bold bg-gradient-to-r from-allpOrange via-orange-400 to-allpOrange bg-clip-text text-transparent animate-glow">
-                        Vamos crescer juntos.
-                      </p>
-                    </div>
-                  </ScrollReveal>
-                </div>
-
-                {/* Decorative elements */}
-                <div className="absolute top-4 right-4 w-2 h-2 bg-allpOrange rounded-full opacity-60 animate-ping" />
-                <div className="absolute bottom-6 left-6 w-1.5 h-1.5 bg-allpPurple rounded-full opacity-60 animate-ping delay-1000" />
               </div>
               
-              {/* Enhanced glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-allpPurple/30 via-transparent to-allpOrange/20 rounded-3xl blur-2xl -z-10 opacity-50 group-hover:opacity-100 transition-opacity duration-700" />
+              {/* Sombra decorativa */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-allpOrange/30 via-allpPurple/30 to-allpOrange/30 rounded-2xl blur opacity-30" />
             </div>
-          </ScrollReveal>
+          </div>
         </div>
+        
+        {/* Elementos decorativos flutuantes */}
+        <div className="absolute top-1/4 left-1/4 w-4 h-4 bg-allpOrange rounded-full animate-bounce opacity-60" style={{ animationDelay: '0s', animationDuration: '3s' }} />
+        <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-allpPurple rounded-full animate-bounce opacity-40" style={{ animationDelay: '1s', animationDuration: '4s' }} />
+        <div className="absolute bottom-1/4 left-1/6 w-2 h-2 bg-allpOrange rounded-full animate-pulse opacity-50" />
       </div>
     </section>
   );
