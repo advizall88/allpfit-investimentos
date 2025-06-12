@@ -22,30 +22,41 @@ const BenefitsCarousel = ({ benefitsCards, expandedCard, onToggleCard }: Benefit
       return;
     }
 
-    // Auto-play functionality
-    const autoPlay = setInterval(() => {
-      api.scrollNext();
-    }, 4000);
+    let autoPlayInterval: NodeJS.Timeout;
 
-    // Pause auto-play when user interacts
+    const startAutoPlay = () => {
+      autoPlayInterval = setInterval(() => {
+        api.scrollNext();
+      }, 5000); // Aumentei para 5 segundos
+    };
+
+    const stopAutoPlay = () => {
+      if (autoPlayInterval) {
+        clearInterval(autoPlayInterval);
+      }
+    };
+
+    // Inicia o autoplay após um delay inicial
+    const initialDelay = setTimeout(() => {
+      startAutoPlay();
+    }, 2000);
+
+    // Para o autoplay quando o usuário interage
     const handleSelect = () => {
-      clearInterval(autoPlay);
-      // Restart auto-play after 6 seconds of inactivity
+      stopAutoPlay();
+      
+      // Reinicia o autoplay após 8 segundos de inatividade
       setTimeout(() => {
-        const newAutoPlay = setInterval(() => {
-          api.scrollNext();
-        }, 4000);
-        
-        // Store the interval reference to clear it later if needed
-        return () => clearInterval(newAutoPlay);
-      }, 6000);
+        startAutoPlay();
+      }, 8000);
     };
 
     api.on("select", handleSelect);
 
-    // Clean up
+    // Limpa os intervalos quando o componente é desmontado
     return () => {
-      clearInterval(autoPlay);
+      clearTimeout(initialDelay);
+      stopAutoPlay();
       api.off("select", handleSelect);
     };
   }, [api]);
