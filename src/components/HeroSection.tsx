@@ -14,14 +14,14 @@ const HeroSection = () => {
       style={{
         backgroundImage: 'url(/lovable-uploads/1b95c159-aec2-42ae-8270-00b256ef4ae0.png)'
       }} 
-      className="bg-cover bg-center text-white py-14 md:py-22 relative min-h-screen overflow-hidden"
+      className="bg-cover bg-center bg-no-repeat text-white py-14 md:py-22 relative min-h-screen overflow-hidden"
     >
       {/* Overlay com gradiente roxo e efeito de fumaça */}
       <div className="absolute inset-0 bg-gradient-to-br from-allpPurple/60 via-allpBlack/40 to-allpPurple/50" />
       
       {/* Efeito de fumaça animada */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-allpPurple/20 via-transparent to-allpOrange/10 animate-pulse" />
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-allpPurple/15 via-transparent to-allpOrange/8 animate-pulse" />
         <div 
           className="absolute top-1/4 -left-1/4 w-96 h-96 bg-allpPurple/30 rounded-full blur-3xl animate-bounce" 
           style={{ animationDuration: '6s' }} 
