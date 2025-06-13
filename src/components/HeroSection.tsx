@@ -12,7 +12,7 @@ const HeroSection = () => {
   return (
     <section 
       style={{
-        backgroundImage: 'url(/lovable-uploads/1b95c159-aec2-42ae-8270-00b256ef4ae0.png)'
+        backgroundImage: 'url(/lovable-uploads/83642793-a14a-4093-8e87-1f0d5c91de45.png)'
       }} 
       className="bg-cover bg-center bg-no-repeat text-white py-14 md:py-22 relative min-h-screen overflow-hidden"
     >
@@ -63,7 +63,7 @@ const HeroSection = () => {
         <div className="mb-8 w-full max-w-3xl animate-scale-in-delay">
           <CustomVideoPlayer 
             videoId="d9hL2TKv9aA" 
-            thumbnailUrl="/lovable-uploads/1b95c159-aec2-42ae-8270-00b256ef4ae0.png" 
+            thumbnailUrl="/lovable-uploads/83642793-a14a-4093-8e87-1f0d5c91de45.png" 
             title="Descubra a Oportunidade de Investimento AllpFit" 
           />
         </div>
