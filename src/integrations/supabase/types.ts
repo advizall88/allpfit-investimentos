@@ -168,6 +168,181 @@ export type Database = {
         }
         Relationships: []
       }
+      manager_agents: {
+        Row: {
+          client_id: number
+          conversations_count: number
+          created_at: string
+          id: number
+          name: string
+          status: string
+          supabase_table: string
+          type: string
+          updated_at: string
+        }
+        Insert: {
+          client_id: number
+          conversations_count?: number
+          created_at?: string
+          id?: number
+          name: string
+          status?: string
+          supabase_table: string
+          type: string
+          updated_at?: string
+        }
+        Update: {
+          client_id?: number
+          conversations_count?: number
+          created_at?: string
+          id?: number
+          name?: string
+          status?: string
+          supabase_table?: string
+          type?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "manager_agents_client_id_fkey"
+            columns: ["client_id"]
+            isOneToOne: false
+            referencedRelation: "manager_clients"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      manager_clients: {
+        Row: {
+          created_at: string
+          id: number
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          name: string
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          name?: string
+        }
+        Relationships: []
+      }
+      manager_prompt: {
+        Row: {
+          agent_id: number | null
+          created_at: string
+          id: number
+          prompt: string | null
+        }
+        Insert: {
+          agent_id?: number | null
+          created_at?: string
+          id?: number
+          prompt?: string | null
+        }
+        Update: {
+          agent_id?: number | null
+          created_at?: string
+          id?: number
+          prompt?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "manager_prompt_agent_id_fkey"
+            columns: ["agent_id"]
+            isOneToOne: false
+            referencedRelation: "manager_agents"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      manager_users: {
+        Row: {
+          created_at: string
+          email: string | null
+          id: number
+          last_login: string | null
+          name: string
+          password: string
+          username: string
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          id?: number
+          last_login?: string | null
+          name: string
+          password: string
+          username: string
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          id?: number
+          last_login?: string | null
+          name?: string
+          password?: string
+          username?: string
+        }
+        Relationships: []
+      }
+      temp_lead: {
+        Row: {
+          created_at: string
+          email: string | null
+          id: number
+          name: string | null
+          numero: string | null
+          push_name: string | null
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          id?: number
+          name?: string | null
+          numero?: string | null
+          push_name?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          id?: number
+          name?: string | null
+          numero?: string | null
+          push_name?: string | null
+        }
+        Relationships: []
+      }
+      temp_n8n_chat: {
+        Row: {
+          created_at: string
+          email: string | null
+          id: number
+          message: string | null
+          name: string | null
+          session_id: string
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          id?: number
+          message?: string | null
+          name?: string | null
+          session_id: string
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          id?: number
+          message?: string | null
+          name?: string | null
+          session_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
